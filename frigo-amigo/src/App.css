@@ -1,3 +1,225 @@
+/* Common */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  overflow-X: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+h2 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* Fonts */
+
+@font-face {
+  font-family: "NEXTART";
+  src: local("NEXTART-Light"),
+    url("Fonts/NEXTART-Light.woff2") format("woff2"),
+    url("Fonts/NEXTART-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NEXTART";
+  src: local("NEXTART"),
+    url("Fonts/NEXTART.woff2") format("woff2"),
+    url("Fonts/NEXTART.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NEXTART";
+  src: local("NEXTART-SemiBold"),
+    url("Fonts/NEXTART-SemiBold.woff2") format("woff2"),
+    url("Fonts/NEXTART-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NEXTART";
+  src: local("NEXTART-Heavy"),
+    url("Fonts/NEXTART-Heavy.woff2") format("woff2"),
+    url("Fonts/NEXTART-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: local("Manrope-Thin"),
+    url("Fonts/Manrope-Thin.woff2") format("woff2"),
+    url("Fonts/Manrope-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: local("Manrope-Regular"),
+    url("Fonts/Manrope-Regular.woff2") format("woff2"),
+    url("Fonts/Manrope-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: local("Manrope-Medium"),
+    url("Fonts/Manrope-Medium.woff2") format("woff2"),
+    url("Fonts/Manrope-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: local("Manrope-Bold"),
+    url("Fonts/Manrope-Bold.woff2") format("woff2"),
+    url("Fonts/Manrope-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RoundedMplus1c";
+  src: local("RoundedMplus1c-Regular"),
+    url("Fonts/RoundedMplus1c-Regular.woff2") format("woff2"),
+    url("Fonts/RoundedMplus1c-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RoundedMplus1c";
+  src: local("RoundedMplus1c-Medium"),
+    url("Fonts/RoundedMplus1c-Medium.woff2") format("woff2"),
+    url("Fonts/RoundedMplus1c-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RoundedMplus1c";
+  src: local("RoundedMplus1c-ExtraBold"),
+    url("Fonts/RoundedMplus1c-ExtraBold.woff2") format("woff2"),
+    url("Fonts/RoundedMplus1c-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+.nextart-300 {
+  font-family: 'NEXTART';
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.nextart-400 {
+  font-family: 'NEXTART';
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.nextart-600 {
+  font-family: 'NEXTART';
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.nextart-900 {
+  font-family: 'NEXTART';
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.manrope-100 {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+}
+
+.manrope-400 {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.manrope-500 {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.manrope-700 {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.roundmplus-400 {
+  font-family: 'RoundedMplus1c';
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.roundmplus-500 {
+  font-family: 'RoundedMplus1c';
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.roundmplus-800 {
+  font-family: 'RoundedMplus1c';
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+/* App */
+
 .App {
   background-color: #e8e8e8;
   min-height: 662vh;
@@ -9,12 +231,99 @@
   left: 7%;
 }
 
-.mainBG {
-  background-image: url(Pictures/71c5281270b0988cc3a0f431e88800ec.jpeg);
-  background-repeat: no-repeat;
+main {
+  position: relative;
+}
+
+.main_bg {
   position: absolute;
+  z-index: 1;
   top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-position: 50%;
+  background-size: cover;
+  background-image: url(Pictures/71c5281270b0988cc3a0f431e88800ec.jpeg);
+}
+
+.navs {
+  position: fixed;
+  z-index: 2;
+  right: 5%;
+}
+
+.navs-item {
+  position: relative;
+  background: linear-gradient(93deg, #59BC8C 2.22%, #66D9A2 99.03%);
+  padding: 36px 46px 24px 46px;
+  border: none;
+  border-radius: 0 0 26px 26px;
+  box-shadow: 9px 0px 5px 2px rgba(0, 0, 0, 0.25);
+  transition: padding 0.5s ease;
+}
+
+.active {
+  padding: 36px 46px 40px 46px;
+  background: #66D9A2;
+  box-shadow: 0px -5px 5px 10px rgba(0, 0, 0, 0.25);
+  z-index: 3;
+}
+
+.navs-link {
+  padding: 0;
+  color: #272826;
+  text-align: center;
+  font-family: 'NEXTART';
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.prem-stars {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+}
+
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
+  border-radius: 22px;
   height: 100%;
-  min-width: 100%;
-  margin-left: 10em;
+  z-index: 1;
+  background: rgba(244, 244, 244, 0.86);
+  padding: 35px;
+  padding-left: 68px;
+}
+
+.greeting {
+  max-width: 66%;
+}
+
+.privet {
+  position: absolute;
+  left: 0;
+  color: #272826;
+  font-size: 8rem;
+}
+
+.newld {
+  padding-top: 146px;
+  color: #272826;
+  font-size: 2.25rem;
+}
+
+.privet-info {
+  color: #272826;
+  font-size: 1.625rem;
+}
+
+.stay-frash {
+  color: #272826;
+  font-size: 2.25rem;
+  margin: 0;
 }
