@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <div className='main'>
       <div className='main_bg'></div>
-        <MainNavs />
+        
         <Greet />
     </div>
   )

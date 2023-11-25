@@ -1,19 +1,40 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Overlay from './Overlay'
+import Greeting from './Greeting';
+import PersonalAccount from './PersonalAccount';
 
-const Greet = () => {
-  return (
-    <div className="wrapper">
-      <div className="greeting">
-        <p className="nextart-900 privet">Привет</p>
-        <p className="roundmplus-400 newld">Я FrigoAmigo - новый лучший друг твоего холодильника</p>
-        <p className="roundmplus-400 privet-info">Следить за состоянием продуктов теперь легче. Открывай свой холодильник, сканируй продукты, разделяй их по категориям и отслеживай срок годности </p>
-        <p className="nextart-400 stay-frash">Stay fresh</p>
-      </div>
-      <div className="form">
+class Greet extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isOverlayShifted: true,
+    };
+  }
+
+  toggleOverlay = () => {
+    this.setState((prevState) => ({
+      isOverlayShifted: !prevState.isOverlayShifted,
+    }));
+  };
+
+  render() {
+    const { isOverlayShifted } = this.state;
+
+    return (
+      <div className="wrapper flex">
+        <div>
+          <Overlay toggleOverlay={this.toggleOverlay} />
+        </div>
+        {isOverlayShifted ? (
+          <Greeting />
+        ) : (
+          <PersonalAccount />
+        )}
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default Greet
