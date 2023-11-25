@@ -29,6 +29,23 @@ p {
   margin: 0;
 }
 
+.list-reset {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.btn-reset {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
 /* Fonts */
 
 @font-face {
@@ -228,7 +245,7 @@ p {
 
 .lines {
   position: absolute;
-  left: 7%;
+  left: 2.5%;
 }
 
 main {
@@ -245,6 +262,7 @@ main {
   background-position: 50%;
   background-size: cover;
   background-image: url(Pictures/71c5281270b0988cc3a0f431e88800ec.jpeg);
+  box-shadow: 0px 4px 10px 0px #66D9A2;
 }
 
 .navs {
@@ -256,7 +274,8 @@ main {
 .navs-item {
   position: relative;
   background: linear-gradient(93deg, #59BC8C 2.22%, #66D9A2 99.03%);
-  padding: 36px 46px 24px 46px;
+  padding: 24px 46px 24px 46px;
+  margin-right: -20px;
   border: none;
   border-radius: 0 0 26px 26px;
   box-shadow: 9px 0px 5px 2px rgba(0, 0, 0, 0.25);
@@ -264,14 +283,15 @@ main {
 }
 
 .active {
-  padding: 36px 46px 40px 46px;
+  padding: 24px 46px 40px 46px;
   background: #66D9A2;
   box-shadow: 0px -5px 5px 10px rgba(0, 0, 0, 0.25);
-  z-index: 3;
+  z-index: 100 !important;
 }
 
 .navs-link {
   padding: 0;
+  margin: 0;
   color: #272826;
   text-align: center;
   font-family: 'NEXTART';
@@ -284,29 +304,54 @@ main {
 
 .prem-stars {
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 16px;
+}
+
+.profile {
+  z-index: 50;
+}
+
+.download {
+  z-index: 49;
+}
+
+.recepies {
+  z-index: 48;
+}
+
+.premium {
+  z-index: 47;
+}
+
+.contacts {
+  z-index: 46;
 }
 
 .wrapper {
   position: relative;
-  margin: 0 auto;
+  margin: auto;
+  margin-bottom: 260px;
+  margin-top: 100px;
   max-width: 1200px;
   border-radius: 22px;
   height: 100%;
+  height: 549px;
   z-index: 1;
   background: rgba(244, 244, 244, 0.86);
   padding: 35px;
+  padding-bottom: 40px;
   padding-left: 68px;
+  overflow: hidden;
 }
 
 .greeting {
-  max-width: 66%;
+  max-width: 63%;
 }
 
 .privet {
   position: absolute;
-  left: 0;
+  left: -36px;
   color: #272826;
   font-size: 8rem;
 }
@@ -327,3 +372,403 @@ main {
   font-size: 2.25rem;
   margin: 0;
 }
+
+/* Overlay */
+
+.overlay {
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 37%;
+  height: 100%;
+  background: #EC9A29;
+  box-shadow: -3px 0px 30px 0px rgba(0, 0, 0, 0.25);
+}
+
+.shifted {
+  transform: translateX(-171%);
+  transition: transform 0.5s ease;
+  /* box-shadow: 0 0 30px 30px rgba(0, 0, 0, 0.25); */
+}
+
+.overlay-content {
+  padding: 76px 46px 10px 46px;
+}
+
+.form-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-item {
+  margin-bottom: 24px;
+  height: 70px;
+  width: 300px;
+}
+
+.form-input {
+  color: #818181;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.5rem;
+  border-radius: 78px;
+  border: 3px solid #B5B6AF;
+  background: #FFF;
+}
+
+.form-btn {
+  color: #818181;
+  border-radius: 95px;
+  border: 3px solid #D9D9D9;
+  background: #D9D9D9;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+.form-bottom {
+  flex-direction: column;
+  color: #FFF;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.form-fp {
+  margin-bottom: 100px;
+}
+
+.reg-btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #FFF;
+}
+
+.mb {
+  margin-bottom: 60px;
+}
+
+/* Overlay shifted */
+
+.overlay-shifted {
+  padding: 60px;
+  padding-top: 90px;
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.fridges {
+  align-items: center;
+  flex-direction: column;
+}
+
+.privet-overlay {
+  font-size: 5.5rem;
+  position: absolute;
+  top: 0;
+  left: -20px;
+  margin: 0;
+  color: #272826;
+}
+
+.admin-name {
+  font-size: 1.75rem;
+  padding: 10px 60px;
+  border-bottom: 4px solid #FFF;
+  margin-bottom: 20px;
+  color: #272826;
+}
+
+.fridges-list {
+  border-radius: 22px;
+  background: #D9D9D9;
+  padding: 20px 40px;
+  margin-bottom: 14px;
+  height: 320px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fridges-item {
+  padding: 20px;
+}
+
+.fridges-item:not(:last-child) {
+  border-bottom: 1px solid #818181;
+}
+
+.fridges-name {
+  font-size: 1.25rem;
+  margin: 0;
+  color: #272826;
+}
+
+.create-fridge {
+  font-size: 1rem;
+  color: #FFF;
+}
+
+.pers-acc {
+  margin-left: 37%;
+  width: 100%;
+  position: relative;
+}
+
+.fridge-name {
+  color: #EC9A29;
+  font-size: 3rem;
+  border-bottom: 3px solid #272826;
+  padding-bottom: 16px;
+  width: 80%;
+}
+
+.settings-circle {
+  position: absolute;
+  right: -35px;
+  top: -35px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.settings-circle.expanded {
+  transform: scale(17);
+  z-index: -1;
+}
+
+.settings {
+  right: -14px;
+  top: -14px;
+  position: absolute;
+  transition: transform 0.5s ease-in-out;
+}
+
+.settings.turned {
+  transform: rotate(30deg);
+}
+
+.settings.turned.twice {
+  transform: rotate(-30deg);
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 700ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 700ms;
+}
+
+.users-list {
+  padding-left: 60px;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.users {
+  font-size: 2rem;
+  color: #272826;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.user-name {
+  font-size: 1.25rem;
+  color: #272826;
+  margin-bottom: 10px;
+}
+
+.to-edit-div {
+  width: 100%;
+  border-bottom: 3px solid #272826;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.to-edit {
+  color: #000;
+  font-size: 1rem;
+  position: absolute;
+  top: -28px;
+  right: 30px;
+}
+
+.bottom-pers-acc {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.code-name {
+  color: #272826;
+  font-size: 2.25rem;
+}
+
+.code {
+  border-radius: 22px;
+  border: 3px solid #FFF;
+  background: #66D9A2;
+  width: 292px;
+}
+
+.code-nums {
+  border-right: 2px solid #FFF;
+  text-align: center;
+  color: #FFF;
+  font-size: 2.5rem;
+  margin: 0;
+  margin-right: 20px;
+  width: 220px;
+}
+
+.code-arrow {
+  width: 40px;
+  height: 40px;
+  margin-top: 18px;
+  margin-right: 6px;
+  background-image: url(Pictures/arrow.svg);
+  background-repeat: no-repeat;
+}
+
+.lock-div {
+  border-radius: 22px;
+  border: 3px solid #FFF;
+  background: #66D9A2;
+}
+
+.code-lock {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  margin-left: 20px;
+  background-image: url(Pictures/lock.svg);
+  background-repeat: no-repeat;
+}
+
+.settings-block {}
+
+.settings-header {
+  font-size: 3rem;
+  color: #272826;
+}
+
+.settings-list {
+  flex-direction: column;
+  border-top: 3px solid #272826;
+  border-bottom: 3px solid #272826;
+  padding-top: 10px;
+  padding-bottom: 16px;
+  max-width: 70%;
+  margin-top: 20px;
+}
+
+.settings-item {
+  flex-direction: column;
+
+}
+
+.settings-label {
+  padding-left: 16px;
+  font-size: 1.25rem;
+}
+
+.settings-input {
+  border-radius: 22px;
+  border: 2px solid #272826;
+  background: #E8E8E8;
+  max-width: 490px;
+  padding: 12px;
+}
+
+.change-plan {
+
+}
+
+.plan-input {
+  width: 275px;
+  margin-right: 30px;
+}
+
+.change-plan-btn {
+  font-size: 1.25rem;
+}
+
+.delete-account {
+  color: #FFF;
+  text-transform: uppercase;
+  padding-top: 10px;
+  float: right;
+  padding-right: 18px;
+}
+
+.delete-div {
+  max-width: 70%;
+}
+
+.door {
+  right: 0;
+  flex-direction: column;
+  position: absolute;
+  color: #272826;
+  font-size: 1rem;
+}
+
+.about-us {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 120px 30px;
+}
+
+.about-div {
+  overflow: visible;
+}
+
+.about-texts {
+  margin-right: 90px;
+  position: relative;
+}
+
+.about-header {
+  font-size: 6rem;
+  margin: 0;
+}
+
+.about-line {
+  position: absolute;
+  top: 90px;
+  left: -143px;
+}
+
+.about-text {
+  max-width: 680px;
+  font-size: 1.5rem;
+  padding-top: 80px;
+}
+
+.people {
+  min-height: 520px;
+  width: 800px;
+  background-image: url(Pictures/people.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  right: -130px;
+}
+

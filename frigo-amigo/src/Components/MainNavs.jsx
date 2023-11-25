@@ -19,25 +19,25 @@ const MainNavs = () => {
     <div>
       <div className="navs">
         <button
-          className={`navs-item ${activeTab === 1 ? 'active' : ''}`}
+          className={`navs-item profile ${activeTab === 1 ? 'active' : ''}`}
           onClick={() => handleTabClick(1)}
         >
           <p className='navs-link'>Профиль</p>
         </button>
         <button
-          className={`navs-item ${activeTab === 2 ? 'active' : ''}`}
+          className={`navs-item download ${activeTab === 2 ? 'active' : ''}`}
           onClick={() => handleTabClick(2)}
         >
           <p className='navs-link'>Скачать</p>
         </button>
         <button
-          className={`navs-item ${activeTab === 3 ? 'active' : ''}`}
+          className={`navs-item recepies ${activeTab === 3 ? 'active' : ''}`}
           onClick={() => handleTabClick(3)}
         >
           <p className='navs-link'>Рецепты</p>
         </button>
         <button
-          className={`navs-item ${activeTab === 4 ? 'active' : ''}`}
+          className={`navs-item premium ${activeTab === 4 ? 'active' : ''}`}
           onClick={() => handleTabClick(4)}
         >
           <svg className='prem-stars' width="43" height="43" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +48,7 @@ const MainNavs = () => {
           <p className='navs-link'>Премиум</p>
         </button>
         <button
-          className={`navs-item ${activeTab === 5 ? 'active' : ''}`}
+          className={`navs-item contacts ${activeTab === 5 ? 'active' : ''}`}
           onClick={() => handleTabClick(5)}
         >
           <p className='navs-link'>Контакты</p>
