@@ -179,6 +179,13 @@ p {
   line-height: normal;
 }
 
+.nextart-700 {
+  font-family: 'NEXTART';
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
 .nextart-900 {
   font-family: 'NEXTART';
   font-style: normal;
@@ -772,3 +779,116 @@ main {
   right: -130px;
 }
 
+/*Heading*/
+
+.heading{
+  margin: 10em 0 0 0;
+}
+
+.heading-text{
+  margin: 0 0 0 3em;
+}
+
+.orange-line{
+  position: absolute;
+  z-index: 1;
+  margin: 0 0 0 1.15em;
+  font-size: 5.5em;
+  background-color: #EC9A29;
+  border-radius: 50px;
+  height: 5.35px;
+}
+
+/*Recipes*/
+
+.cards-list {
+  list-style-type: none;
+  margin: 7em 0 0 -2.5em;
+  position: relative;
+}
+
+.cards-list > li{
+  display:flex;
+  flex-direction: column;
+}
+
+.recipe-card{
+  margin: 0 0 63em 0;
+}
+
+.recipe-arrow{
+  position: absolute;
+  z-index: 1;
+  margin: 10em 0 0 87%;
+  color: #FFF;
+  max-width: 50em;
+}
+
+.recipe-image{
+  position: absolute;
+  margin: 0 0 0 0;
+  max-width: 110em;
+}
+
+.recipe-heading{
+  position: absolute;
+  z-index: 1;
+  margin: 2.5em 0 0 2.5em;
+  color: #FFF;
+  font-size: 4rem;
+}
+
+.recipe-line{
+  position: absolute;
+  z-index: 1;
+  margin: 15em 0 0 6em;
+  color: #FFF;
+  max-width: 50em;
+}
+
+.recipe-ingredients{
+  position: absolute;
+  z-index: 1;
+  margin: 8.5em 0 0 5em;
+  color: #FFF;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+}
+
+.recipe-ingredients-items{
+  position: absolute;
+  z-index: 1;
+  margin: 13.5em 0 0 7.5em;
+  color: #FFF;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+.recipe-pfc-per-100{
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+  margin: 21.5em 0 0 3em;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+}
+
+.recipe-pfc-calories{
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+  margin: 23.5em 0 0 6em;
+  font-size: 2rem;
+  letter-spacing: 0.2em;
+}
+
+.recipe-button{
+  margin: 0 0 0 40%;
+}
+
+.recipe-button-design{
+  font-size: 1.5rem;
+  border: none;
+  background-color: #e8e8e8;
+  color: #818181;
+}
