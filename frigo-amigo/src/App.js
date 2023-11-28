@@ -2,6 +2,8 @@ import './App.css';
 import AboutUs from './Components/AboutUs';
 import Main from './Components/Main';
 import MainNavs from './Components/MainNavs';
+import Premium from './Components/Premium';
+import Recipes from './Components/Recipes'
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <MainNavs />
       <Main />
       <AboutUs />
+      <Recipes />
+      <Premium />
     </div>
   );
 }
