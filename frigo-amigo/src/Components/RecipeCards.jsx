@@ -17,15 +17,15 @@ const RecipeCards = () => {
                         Ингредиенты:
                     </div>
                     <div className="recipe-ingredients-items roundmplus-600">
-                        <ul>
+                        <ul style={{listStyleType: "disc"}}>
                             <li>Кокейн по вкусу</li>
                             <li>Тесто вот это да!</li>
                             <li>Дети куриные</li>
                             <li>Протеин чтобы пп</li>
                         </ul>
                     </div>
-                    <div className="pfc-per-100 roundmplus-600">БЖУ на 100г</div>
-                    <div className="pfc-calories roundmplus-600">Б 0г |  Ж 0г  |  У 0г  |  0кк</div>
+                    <div className="recipe-pfc-per-100 roundmplus-600">БЖУ на 100г</div>
+                    <div className="recipe-pfc-calories roundmplus-600">Б 0г |  Ж 0г  |  У 0г  |  0кк</div>
                 </div>
             </li>
             <li>
@@ -38,7 +38,7 @@ const RecipeCards = () => {
                         Ингредиенты:
                     </div>
                     <div className="recipe-ingredients-items roundmplus-600">
-                        <ul>
+                        <ul style={{listStyleType: "disc"}}>
                             <li>Кокейн по вкусу</li>
                             <li>Тесто вот это да!</li>
                             <li>Дети куриные</li>

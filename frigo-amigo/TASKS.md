@@ -36,3 +36,11 @@
 ### Footer
 - __Contacts
 - contacts info
+###
+
+
+**!!!MILENA**
+- *replace all png with svg*
+- *adapt everything to all screen sizes*
+- *add links + route*
+
