@@ -5,7 +5,7 @@ const Heading = (props) => {
         <>
             <div className="heading">
                 <h2 className='about-header nextart-300 heading-text'>{props.heading}</h2>
-                <div style={{width:`${props.lineWidth}`}} className="orange-line"></div>
+                <div style={{width:`${props.lineWidth}`, marginLeft:`${props.lineMargin}`}} className="orange-line"></div>
             </div>
         </>
     )

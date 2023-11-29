@@ -5,7 +5,9 @@ import Heading from "./Heading";
 const Recipes = () => {
  return (
     <>
-        <Heading heading="Рецепты" lineWidth="7.7em"/>
+        <div style={{margin: "78em 0 0 0"}}>
+         <Heading heading="Рецепты" lineWidth="7.7em" lineMargin="1.42em"/>
+        </div>
         <RecipeCards />
     </>
  )

@@ -1,5 +1,7 @@
 import './App.css';
 import AboutUs from './Components/AboutUs';
+import DownloadApp from './Components/DownloadApp';
+import Footer from './Components/Footer';
 import Main from './Components/Main';
 import MainNavs from './Components/MainNavs';
 import Premium from './Components/Premium';
@@ -18,8 +20,10 @@ function App() {
       <MainNavs />
       <Main />
       <AboutUs />
+      <DownloadApp />
       <Recipes />
       <Premium />
+      <Footer />
     </div>
   );
 }
