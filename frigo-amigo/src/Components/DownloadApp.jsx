@@ -4,7 +4,7 @@ import qr from "../Pictures/QRcode.png"
 
 const DownloadApp = () => {
     return(
-        <>
+        <div className="container">
             <div className="download-block">
                 <img src={bg} alt="background" className="download-bg"></img>
                 <div className="download-heading nextart-700">Скачай <br/> Приложение</div>
@@ -30,7 +30,7 @@ const DownloadApp = () => {
                     Все права защищены, с полным перечнем правил и особенностей  вы не можете ознакомиться. Для дальнейшего написания текста делегируйте   
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
