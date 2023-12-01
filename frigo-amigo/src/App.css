@@ -488,7 +488,7 @@ main {
   color: #FFF;
   transition: transform 0.3s ease-in-out;
 }
-
+/* это прикол какой-то */
 .reg-btn:hover {
   transform: scale(1.25);
 }
