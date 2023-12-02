@@ -1,18 +1,31 @@
 import React, { useState } from 'react';
 
-const MainNavs = () => {
+const MainNavs = ({ refs }) => {
   const [activeTab, setActiveTab] = useState(1);
 
   const handleTabClick = (tabId) => {
-    const targetElement = document.getElementById(`tab${tabId}`);
-
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
-
     setActiveTab(tabId);
+
+    // Прокрутка к соответствующему компоненту, используя переданные рефы
+    switch (tabId) {
+      case 1:
+        refs.mainRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      case 2:
+        refs.downloadAppRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      case 3:
+        refs.recipesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      case 4:
+        refs.premiumRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      case 5:
+        refs.footerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -53,22 +66,6 @@ const MainNavs = () => {
         >
           <p className='navs-link'>Контакты</p>
         </button>
-      </div>
-
-      <div id="tab1">
-        <p>тут будут другие компоненты1</p>
-      </div>
-      <div id="tab2">
-        <p>тут будут другие компоненты2</p>
-      </div>
-      <div id="tab3">
-        <p>тут будут другие компоненты3</p>
-      </div>
-      <div id="tab4">
-        <p>тут будут другие компоненты4</p>
-      </div>
-      <div id="tab5">
-        <p>тут будут другие компоненты5</p>
       </div>
     </div>
   );
