@@ -347,7 +347,7 @@ main {
   position: relative;
   margin: auto;
   margin-bottom: 16.25em;
-  margin-top: 6.25em;
+  margin-top: 12.25em;
   max-width: 75em;
   border-radius: 1.375em;
   height: 100%;
@@ -488,7 +488,7 @@ main {
   color: #FFF;
   transition: transform 0.3s ease-in-out;
 }
-/* это прикол какой-то */
+
 .reg-btn:hover {
   transform: scale(1.25);
 }

@@ -10,7 +10,7 @@ const AboutUs = () => {
             <h2 className='about-header nextart-300'>О нас</h2>
             <div className='about-line'>
               <svg xmlns="http://www.w3.org/2000/svg" width="504" height="9" viewBox="0 0 504 9" fill="none">
-                <path d="M3 6L501 3.00004" stroke="#EC9A29" stroke-width="5" stroke-linecap="round" />
+                <path d="M3 6L501 3.00004" stroke="#EC9A29" strokeWidth="5" strokeLinecap="round" />
               </svg>
             </div>
             <p className='about-text roundedmplus-400'>
