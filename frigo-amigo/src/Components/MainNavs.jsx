@@ -29,7 +29,7 @@ const MainNavs = ({ refs }) => {
   };
 
   return (
-    <div>
+    <div className='container'>
       <div className="navs">
         <button
           className={`navs-item profile ${activeTab === 1 ? 'active' : ''}`}
