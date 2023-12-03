@@ -1,5 +1,6 @@
 import React from 'react'
-import people from '../Pictures/people.png'
+import people from '../Pictures/people.jpg'
+import Heading from "./Heading";
 
 const AboutUs = () => {
   return (
@@ -7,12 +8,15 @@ const AboutUs = () => {
       <div className='about-us'>
         <div className='about-div flex'>
           <div className='about-texts'>
-            <h2 className='about-header nextart-300'>О нас</h2>
+            <div className='about-heading'>
+                <Heading heading="О нас" lineWidth="6.5em" lineMargin="1em"/>
+            </div>
+            {/* <h2 className='about-header nextart-300'>О нас</h2>
             <div className='about-line'>
               <svg xmlns="http://www.w3.org/2000/svg" width="504" height="9" viewBox="0 0 504 9" fill="none">
                 <path d="M3 6L501 3.00004" stroke="#EC9A29" strokeWidth="5" strokeLinecap="round" />
               </svg>
-            </div>
+            </div> */}
             <p className='about-text roundedmplus-400'>
               Создатели FrigoAmigo - команда инициативных студентов факультета искусств
               СПбГУ. Мы сами порой забывали про недолговечность некоторых продуктов
