@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import userContext, { UserContext } from '../UserContext';
+import { UserContext } from '../UserContext';
 
 class LoginForm extends React.Component {
   static contextType = UserContext;
