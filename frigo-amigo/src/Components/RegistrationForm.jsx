@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class RegistrationForm extends React.Component {
   constructor(props) {
@@ -61,8 +62,24 @@ class RegistrationForm extends React.Component {
     this.setState({ isEmailValid, isPasswordValid, isNameValid });
 
     if (isEmailValid && isPasswordValid && isNameValid) {
-      console.log('Registration successful!');
-      this.props.toggleShift();
+      const postData = async () => {
+        try {
+          const response = await axios.post('http://localhost:8080/auth/register', {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password
+          });
+
+          console.log(response.data);
+        } catch (error) {
+          console.error(`Error posting data: ${error}`);
+        }
+      };
+
+      postData().then(() => {
+        this.props.toggleShift();
+      });
+
     }
   };
 
