@@ -17,7 +17,7 @@ const Users = () => {
   }
 
   return (
-    <div>
+    <div className='users-block'>
       <p className='fridge-name nextart-900'>Мой холодильник</p>
       <p className='users manrope-400'>Пользователи</p>
       <ul className='users-list'>

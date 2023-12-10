@@ -5,8 +5,8 @@ import React from 'react';
 
 const Footer = React.forwardRef((props, ref) => {
     return(
-        <div ref={ref} className="container">
-            <div className="footer-heading">
+        <div className="container">
+            <div ref={ref} className="footer-heading">
                 <Heading heading="Контакты" lineWidth="9em" lineMargin="0.455em"/>
             </div>
             <FooterContacts />
