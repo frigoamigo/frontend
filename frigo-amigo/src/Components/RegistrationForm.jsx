@@ -88,7 +88,7 @@ class RegistrationForm extends React.Component {
               value={email}
               onChange={this.handleInputChange}
             />
-            {!isEmailValid && <p className="error-message">Неверный формат email</p>}
+            {!isEmailValid && email.length > 0 && <p className="error-message">Неверный формат email</p>}
           </li>
           <li className='form-item'>
             <input
@@ -99,7 +99,7 @@ class RegistrationForm extends React.Component {
               value={password}
               onChange={this.handleInputChange}
             />
-            {!isPasswordValid && <p className="error-message">Неверный формат пароля</p>}
+            {!isPasswordValid && password.length > 0 && <p className="error-message">Неверный формат пароля</p>}
           </li>
           <li className='form-item'>
             <input
@@ -110,7 +110,7 @@ class RegistrationForm extends React.Component {
               value={name}
               onChange={this.handleInputChange}
             />
-            {!isNameValid && <p className="error-message">Введите ваш никнейм</p>}
+            {!isNameValid && name.length > 0 && <p className="error-message">Введите ваш никнейм</p>}
           </li>
           <li className='form-item mb'>
             <button
