@@ -267,6 +267,7 @@ main {
 }
 
 .main_bg {
+  margin: 0 auto;
   position: absolute;
   top: -13.125em;
   width: 107.5em;
@@ -445,6 +446,8 @@ main {
 
 .form-btn {
   color: #818181;
+  position: relative;
+  min-height: 75px;
   border-radius: 95px;
   border: 3px solid #D9D9D9;
   background: #D9D9D9;
@@ -501,6 +504,51 @@ main {
   text-align: center;
 }
 
+/* Loading */
+
+.loader {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: block;
+  margin:15px auto;
+  position: absolute;
+  color: #FFF;
+  top: 15px;
+  box-sizing: border-box;
+  animation: shadowRolling 2s linear infinite;
+}
+
+@keyframes shadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  12% {
+    box-shadow: 100px 0 #272826, 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  25% {
+    box-shadow: 110px 0 #272826, 100px 0 #272826, 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  36% {
+    box-shadow: 120px 0 #272826, 110px 0 #272826, 100px 0 #272826, 0px 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 130px 0 #272826, 120px 0 #272826, 110px 0 #272826, 100px 0 #272826;
+  }
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 #272826, 120px 0 #272826, 110px 0 #272826;
+  }
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 #272826, 120px 0 #272826;
+  }
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 #272826;
+  }
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
 /* Overlay shifted */
 
 .overlay-shifted {
@@ -530,16 +578,15 @@ main {
 .admin-name {
   font-size: 1.75rem;
   padding: 0.375em 1.5em;
-  border-bottom: 5px solid #FFF;
-  margin-bottom: 0.75em;
   color: #272826;
 }
 
 .fridges-list {
   border-radius: 1.375em;
   background: #D9D9D9;
-  padding: 1.25em 2em;
+  padding: 1.25em 1.5em;
   margin-bottom: 0.875em;
+  margin-top: 0.875em;
   height: 20em;
   flex-direction: column;
   align-items: center;
@@ -604,7 +651,6 @@ main {
 .settings.turned.twice {
   transform: rotate(-30deg);
 }
-
 
 .users-list {
   padding-left: 3.75em;
@@ -776,16 +822,6 @@ main {
 
 .about-heading{
   margin: 0em 0 0 -15em;
-}
-
-.about-header {
-  margin: 0;
-}
-
-.about-line {
-  position: absolute;
-  top: 5.625em;
-  left: -8.9375em;
 }
 
 .about-text {
@@ -1324,4 +1360,103 @@ main {
 
 .footer-year-block {
   margin: 0.8em 0 0 14em;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    max-width: 90%;
+  }
+
+  .lines {
+    display: none;
+  }
+
+  .main_bg {
+    content: url(Pictures/Rectangle\ 213.png);
+    box-shadow: none;
+    top: -21em;
+  }
+
+  .wrapper {
+    margin-top: 4em;
+    margin-bottom: 8em;
+    padding: 1.5em;
+    padding-bottom: 2.5em;
+  }
+
+  .greeting {
+    max-width: 100%;
+  }
+
+  .privet {
+    font-size: 4.5rem;
+  }
+
+  .newld {
+    padding-top: 5em;
+    font-size: 1.2rem;
+  }
+
+  .privet-info {
+    font-size: 1rem;
+  }
+
+  .stay-frash {
+    font-size: 1.2rem;
+  }
+
+  .overlay {
+    top: 66%;
+    bottom: 0;
+    width: 100%;
+    height: 187px;
+  }
+
+  .overlay-content {
+    padding: 1em;
+  }
+
+  .form-fp {
+    margin-bottom: 1em;
+  }
+
+  .reg-btn {
+    font-size: 1rem;
+  }
+
+  .about-us {
+    margin: 0;
+  }
+
+  .about-div {
+    display: block;
+  }
+
+  .about-texts {
+    margin: 0;
+  }
+
+  .about-heading{
+    margin: 0 0 0 -9em;
+  }
+  
+  .about-text {
+    font-size: 1rem;
+    padding-top: 2em;
+    max-width: 280px;
+  }
+  
+  .people {
+
+  }
+
+  .heading-text {
+    font-size: 3rem;
+  }
+
+  .orange-line {
+    width: 2em !important;
+  }
+
+  
 }

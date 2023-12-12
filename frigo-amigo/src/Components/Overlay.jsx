@@ -1,58 +1,78 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import LoginForm from './LoginForm';
+import LoginFormMobile from './LoginFormMobile'; // Новый компонент для мобильной версии
 import RegistrationForm from './RegistrationForm';
 import FridgesList from './FridgesList';
 
-export default class Overlay extends Component {
-  constructor(props) {
-    super(props);
+const Overlay = (props) => {
+  const [isLoginFormVisible, setLoginFormVisible] = useState(true);
+  const [isLoginButtonClicked, setLoginButtonClicked] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-    this.state = {
-      isLoginFormVisible: true,
-      isLoginButtonClicked: false,
-    };
-  }
-
-  toggleForm = () => {
-    this.setState((prevState) => ({
-      isLoginFormVisible: !prevState.isLoginFormVisible,
-    }));
+  const toggleForm = () => {
+    setLoginFormVisible((prev) => !prev);
   };
 
-  toggleShift = () => {
-    this.setState((prevState) => ({
-      isLoginButtonClicked: !prevState.isLoginButtonClicked,
-    }));
-    this.props.toggleOverlay();
-  }
+  const toggleShift = () => {
+    setLoginButtonClicked((prev) => !prev);
+    props.toggleOverlay();
+  };
 
-  render() {
-    const { isLoginFormVisible, isLoginButtonClicked } = this.state;
-    return (
-      <div className={`overlay ${isLoginButtonClicked ? 'shifted' : ''}`}>
-        <div style={{ display: isLoginButtonClicked ? 'none' : 'block' }} className="overlay-content">
-          {isLoginFormVisible ? (
-            <LoginForm isLoginButtonClicked={isLoginButtonClicked} toggleShift={this.toggleShift} />
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 479);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return (
+    <div className={`overlay ${isLoginButtonClicked ? 'shifted' : ''}`}>
+      <div style={{ display: isLoginButtonClicked ? 'none' : 'block' }} className="overlay-content">
+        {isLoginFormVisible ? (
+          isMobile ? (
+            <LoginFormMobile isLoginButtonClicked={isLoginButtonClicked} toggleShift={toggleShift} />
           ) : (
-            <RegistrationForm isLoginButtonClicked={isLoginButtonClicked} toggleShift={this.toggleShift} />
-          )}
-          <div className="form-bottom flex manrope-400">
-            {isLoginFormVisible ? (
-              <>
-                <span style={{ display: isLoginButtonClicked ? 'none' : 'block' }} className="form-fp">Забыли пароль?</span>
-                <button style={{ display: isLoginButtonClicked ? 'none' : 'block' }} className="reg-btn" type="button" onClick={this.toggleForm}>
-                  Зарегистрироваться
-                </button>
-              </>
-            ) : (
-              <button style={{ display: isLoginButtonClicked ? 'none' : 'block' }} className="reg-btn" type="button" onClick={this.toggleForm}>
-                Назад
+            <LoginForm isLoginButtonClicked={isLoginButtonClicked} toggleShift={toggleShift} />
+          )
+        ) : (
+          <RegistrationForm isLoginButtonClicked={isLoginButtonClicked} toggleShift={toggleShift} />
+        )}
+        <div className="form-bottom flex manrope-400">
+          {isLoginFormVisible ? (
+            <>
+              <span style={{ display: isLoginButtonClicked ? 'none' : 'block' }} className="form-fp">
+                Забыли пароль?
+              </span>
+              <button
+                style={{ display: isLoginButtonClicked ? 'none' : 'block' }}
+                className="reg-btn"
+                type="button"
+                onClick={toggleForm}
+              >
+                Зарегистрироваться
               </button>
-            )}
-          </div>
+            </>
+          ) : (
+            <button
+              style={{ display: isLoginButtonClicked ? 'none' : 'block' }}
+              className="reg-btn"
+              type="button"
+              onClick={toggleForm}
+            >
+              Назад
+            </button>
+          )}
         </div>
-        <FridgesList isLoginButtonClicked={isLoginButtonClicked} />
       </div>
-    );
-  }
-}
+      <FridgesList isLoginButtonClicked={isLoginButtonClicked} />
+    </div>
+  );
+};
+
+export default Overlay;

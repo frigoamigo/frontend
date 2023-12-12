@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { UserContext } from '../UserContext';
 
-class LoginForm extends React.Component {
+class LoginFormMobile extends React.Component {
   static contextType = UserContext;
   constructor(props) {
     super(props);
@@ -71,7 +71,7 @@ class LoginForm extends React.Component {
               onChange={this.handleInputChange}
             />
           </li>
-          <li className='form-item'>
+          {/* <li className='form-item'>
             <input
               type='password'
               className='form-input manrope-100'
@@ -94,11 +94,11 @@ class LoginForm extends React.Component {
                 <span>Войти</span>
               )}
             </button>
-          </li>
+          </li> */}
         </ul>
       </form>
     );
   }
 }
 
-export default LoginForm;
+export default LoginFormMobile;

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-function generate_code(length=7) {
+function generate_code(length = 7) {
   let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   let result = '';
   for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
   }
   return result;
 }
@@ -22,6 +22,10 @@ const Users = () => {
       <p className='users manrope-400'>Пользователи</p>
       <ul className='users-list'>
         <li className='users-item'>
+          {/* <p className='user-name manrope-400'>{user.name}</p> */}
+          <p className='user-name manrope-400'>Умоподрочитель</p>
+        </li>
+        <li className='users-item'>
           <p className='user-name manrope-400'>Дана Жураускас</p>
         </li>
         <li className='users-item'>
@@ -32,9 +36,6 @@ const Users = () => {
         </li>
         <li className='users-item'>
           <p className='user-name manrope-400'>саша юшина</p>
-        </li>
-        <li className='users-item'>
-          <p className='user-name manrope-400'>Умоподрочитель</p>
         </li>
       </ul>
       <div className='to-edit-div'>
