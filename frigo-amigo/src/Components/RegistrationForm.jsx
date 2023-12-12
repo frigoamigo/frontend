@@ -12,17 +12,16 @@ class RegistrationForm extends React.Component {
       isEmailValid: true,
       isPasswordValid: true,
       isNameValid: true,
+      isLoading: false,
     };
   }
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
-    // Update the state for the changed input field
     this.setState({
       [name]: value,
     });
 
-    // Perform real-time validation based on the input field
     if (name === 'email') {
       this.setState({
         isEmailValid: this.isEmailValid(value),
@@ -49,7 +48,7 @@ class RegistrationForm extends React.Component {
   };
 
   isNameValid = (name) => {
-    const nameRegex = /^[a-zA-Z][a-zA-Z0-9-_.]{1,20}$/i;
+    const nameRegex = /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я0-9-_.]{1,20}$/i;
     return nameRegex.test(name);
   };
 
@@ -59,7 +58,7 @@ class RegistrationForm extends React.Component {
     const isPasswordValid = this.isPasswordValid(password);
     const isNameValid = this.isNameValid(name);
 
-    this.setState({ isEmailValid, isPasswordValid, isNameValid });
+    this.setState({ isLoading: true, isEmailValid, isPasswordValid, isNameValid });
 
     if (isEmailValid && isPasswordValid && isNameValid) {
       const postData = async () => {
@@ -73,6 +72,8 @@ class RegistrationForm extends React.Component {
           console.log(response.data);
         } catch (error) {
           console.error(`Error posting data: ${error}`);
+        } finally {
+          this.setState({ isLoading: false });
         }
       };
 
@@ -85,13 +86,13 @@ class RegistrationForm extends React.Component {
 
   render() {
     const { isLoginButtonClicked } = this.props;
-    const { email, password, name } = this.state;
+    const { email, password, name, isLoading } = this.state;
 
     const isEmailValid = this.isEmailValid(email);
     const isPasswordValid = this.isPasswordValid(password);
     const isNameValid = this.isNameValid(name);
 
-    const isButtonDisabled = !isEmailValid || !isPasswordValid || !isNameValid;
+    const isButtonDisabled = isLoading || !isEmailValid || !isPasswordValid || !isNameValid;
 
     return (
       <form style={{ display: isLoginButtonClicked ? 'none' : 'flex' }}>
@@ -136,7 +137,11 @@ class RegistrationForm extends React.Component {
               onClick={this.handleRegistrationClick}
               disabled={isButtonDisabled}
             >
-              <span>Зарегистрироваться</span>
+              {this.state.isLoading ? (
+                <span className="loader"></span>
+              ) : (
+                <span>Зарегистрироваться</span>
+              )}
             </button>
           </li>
         </ul>
