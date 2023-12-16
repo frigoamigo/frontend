@@ -2,32 +2,24 @@ import React, { Component } from 'react'
 import Overlay from './Overlay'
 import Greeting from './Greeting';
 import PersonalAccount from './PersonalAccount';
+import {UserContext} from "../UserContext";
 
 class Greet extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      isOverlayShifted: true,
-    };
   }
 
-  toggleOverlay = () => {
-    this.setState((prevState) => ({
-      isOverlayShifted: !prevState.isOverlayShifted,
-    }));
-  };
+  static contextType = UserContext
 
   render() {
-    const { isOverlayShifted } = this.state;
 
     return (
       <div className="wrapper flex">
         <div>
-          <Overlay toggleOverlay={this.toggleOverlay} />
+          <Overlay />
         </div>
-        {isOverlayShifted ? (
+        {!this.context.authenticated ? (
           <Greeting />
         ) : (
           <PersonalAccount />

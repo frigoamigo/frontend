@@ -37,9 +37,7 @@ class LoginForm extends React.Component {
       }
     };
 
-    postData().then(() => {
-      this.props.toggleShift();
-    });
+    postData();
   }
 
   handleInputChange = (event) => {
@@ -47,16 +45,9 @@ class LoginForm extends React.Component {
     this.setState({ [name]: value });
   };
 
-  componentDidMount() {
-    if (this.context.authenticated) {
-      this.props.toggleShift();
-    }
-  }
-
   render() {
     const { isLoginButtonClicked } = this.props;
     const { email, password, isButtonDisabled } = this.state;
-    this.componentDidMount();
 
     return (
       <form style={{ display: isLoginButtonClicked ? 'none' : 'flex' }}>
