@@ -1,17 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import LoginForm from './LoginForm';
+import LoginFormMobile from './LoginFormMobile';
 import RegistrationForm from './RegistrationForm';
 import FridgesList from './FridgesList';
+import { UserContext } from '../UserContext';
 
-export default class Overlay extends Component {
+class Overlay extends React.Component {
+  static contextType = UserContext;
+
   constructor(props) {
     super(props);
-
     this.state = {
       isLoginFormVisible: true,
-      isLoginButtonClicked: false,
+      isMobile: false,
     };
   }
+
 
   toggleForm = () => {
     this.setState((prevState) => ({
@@ -19,40 +23,68 @@ export default class Overlay extends Component {
     }));
   };
 
-  toggleShift = () => {
-    this.setState((prevState) => ({
-      isLoginButtonClicked: !prevState.isLoginButtonClicked,
-    }));
-    this.props.toggleOverlay();
+  handleResize = () => {
+    this.setState({
+      isMobile: window.innerWidth <= 479,
+    });
+  };
+
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
   }
 
   render() {
-    const { isLoginFormVisible, isLoginButtonClicked } = this.state;
+    const { isMobile, isLoginFormVisible } = this.state;
+    const authenticated = this.context.authenticated;
+
     return (
-      <div className={`overlay ${isLoginButtonClicked ? 'shifted' : ''}`}>
-        <div style={{ display: isLoginButtonClicked ? 'none' : 'block' }} className="overlay-content">
-          {isLoginFormVisible ? (
-            <LoginForm isLoginButtonClicked={isLoginButtonClicked} toggleShift={this.toggleShift} />
-          ) : (
-            <RegistrationForm isLoginButtonClicked={isLoginButtonClicked} toggleShift={this.toggleShift} />
-          )}
-          <div className="form-bottom flex manrope-400">
+        <div className={`overlay ${authenticated ? 'shifted' : ''}`}>
+          <div style={{ display: authenticated ? 'none' : 'block' }} className="overlay-content">
             {isLoginFormVisible ? (
-              <>
-                <span style={{ display: isLoginButtonClicked ? 'none' : 'block' }} className="form-fp">Забыли пароль?</span>
-                <button style={{ display: isLoginButtonClicked ? 'none' : 'block' }} className="reg-btn" type="button" onClick={this.toggleForm}>
-                  Зарегистрироваться
-                </button>
-              </>
+                isMobile ? (
+                    <LoginFormMobile isLoginButtonClicked={authenticated} />
+                ) : (
+                    <LoginForm isLoginButtonClicked={authenticated} />
+                )
             ) : (
-              <button style={{ display: isLoginButtonClicked ? 'none' : 'block' }} className="reg-btn" type="button" onClick={this.toggleForm}>
-                Назад
-              </button>
+                <RegistrationForm isLoginButtonClicked={authenticated} />
             )}
+            <div className="form-bottom flex manrope-400">
+              {isLoginFormVisible ? (
+                  <>
+                <span style={{ display: authenticated ? 'none' : 'block' }} className="form-fp">
+                  Забыли пароль?
+                </span>
+                    <button
+                        style={{ display: authenticated ? 'none' : 'block' }}
+                        className="reg-btn"
+                        type="button"
+                        onClick={this.toggleForm}
+                    >
+                      Зарегистрироваться
+                    </button>
+                  </>
+              ) : (
+                  <button
+                      style={{ display: authenticated ? 'none' : 'block' }}
+                      className="reg-btn"
+                      type="button"
+                      onClick={this.toggleForm}
+                  >
+                    Назад
+                  </button>
+              )}
+            </div>
           </div>
+          {authenticated ? <FridgesList /> : null}
         </div>
-        <FridgesList isLoginButtonClicked={isLoginButtonClicked} />
-      </div>
     );
   }
 }
+
+export default Overlay;

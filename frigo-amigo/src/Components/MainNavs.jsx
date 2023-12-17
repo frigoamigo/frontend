@@ -1,12 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const MainNavs = ({ refs }) => {
   const [activeTab, setActiveTab] = useState(1);
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrolling) return;
+
+      const blockRefs = [
+        refs.mainRef,
+        refs.downloadAppRef,
+        refs.recipesRef,
+        refs.premiumRef,
+        refs.footerRef,
+      ];
+
+      let activeTabId = -1;
+
+      blockRefs.forEach((ref, index) => {
+        const rect = ref.current.getBoundingClientRect();
+
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+          activeTabId = index + 1;
+        }
+      });
+
+      if (activeTabId !== -1 && activeTab !== activeTabId) {
+        setActiveTab(activeTabId);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolling, activeTab, refs]);
 
   const handleTabClick = (tabId) => {
+    if (scrolling) return;
+
+    setScrolling(true);
+
     setActiveTab(tabId);
 
-    // Прокрутка к соответствующему компоненту, используя переданные рефы
     switch (tabId) {
       case 1:
         refs.mainRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -26,6 +64,10 @@ const MainNavs = ({ refs }) => {
       default:
         break;
     }
+
+    setTimeout(() => {
+      setScrolling(false);
+    }, 500);
   };
 
   return (

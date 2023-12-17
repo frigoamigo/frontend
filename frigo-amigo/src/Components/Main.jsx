@@ -6,7 +6,7 @@ const Main = React.forwardRef((props, ref) => {
   return (
     <div className='main'>
       <div className='container'>
-        <img ref={ref} className='main_bg' alt='bg' src={bg}></img>
+      <img ref={ref} className='main_bg' alt='bg' src={bg}></img>
         <Greet />
       </div>
     </div>

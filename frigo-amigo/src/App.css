@@ -267,6 +267,7 @@ main {
 }
 
 .main_bg {
+  margin: 0 auto;
   position: absolute;
   top: -13.125em;
   width: 107.5em;
@@ -445,6 +446,8 @@ main {
 
 .form-btn {
   color: #818181;
+  position: relative;
+  min-height: 75px;
   border-radius: 95px;
   border: 3px solid #D9D9D9;
   background: #D9D9D9;
@@ -501,6 +504,51 @@ main {
   text-align: center;
 }
 
+/* Loading */
+
+.loader {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: block;
+  margin:15px auto;
+  position: absolute;
+  color: #FFF;
+  top: 15px;
+  box-sizing: border-box;
+  animation: shadowRolling 2s linear infinite;
+}
+
+@keyframes shadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  12% {
+    box-shadow: 100px 0 #272826, 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  25% {
+    box-shadow: 110px 0 #272826, 100px 0 #272826, 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  36% {
+    box-shadow: 120px 0 #272826, 110px 0 #272826, 100px 0 #272826, 0px 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 130px 0 #272826, 120px 0 #272826, 110px 0 #272826, 100px 0 #272826;
+  }
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 #272826, 120px 0 #272826, 110px 0 #272826;
+  }
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 #272826, 120px 0 #272826;
+  }
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 #272826;
+  }
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
 /* Overlay shifted */
 
 .overlay-shifted {
@@ -529,24 +577,25 @@ main {
 
 .admin-name {
   font-size: 1.75rem;
-  padding: 0.375em 2em;
-  border-bottom: 5px solid #FFF;
-  margin-bottom: 0.75em;
+  padding: 0.375em 1.5em;
   color: #272826;
 }
 
 .fridges-list {
   border-radius: 1.375em;
   background: #D9D9D9;
-  padding: 1.25em 2.5em;
+  padding: 1.25em 1.5em;
   margin-bottom: 0.875em;
+  margin-top: 0.875em;
   height: 20em;
   flex-direction: column;
   align-items: center;
+  width: 90%;
 }
 
 .fridges-item {
   padding: 1.25em;
+  cursor: pointer;
 }
 
 .fridges-item:not(:last-child) {
@@ -562,6 +611,11 @@ main {
 .create-fridge {
   font-size: 1rem;
   color: #FFF;
+  transition: transform 0.5s ease-in-out;
+}
+
+.create-fridge:hover {
+  transform: scale(1.25);
 }
 
 .pers-acc {
@@ -605,22 +659,9 @@ main {
   transform: rotate(-30deg);
 }
 
-.fade-enter {
-  opacity: 0;
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 700ms;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 700ms;
+.users-block {
+  flex-direction: column;
+  height: 100%;
 }
 
 .users-list {
@@ -628,6 +669,8 @@ main {
   position: relative;
   margin: 0;
   margin-bottom: 2.5em;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .users {
@@ -637,16 +680,25 @@ main {
   margin-bottom: 0.625em;
 }
 
+.users-item {
+  position: relative;
+  max-width: fit-content;
+  margin-bottom: 0.2625em;
+}
+
 .user-name {
   font-size: 1.25rem;
   color: #272826;
-  margin-bottom: 0.325em;
+}
+
+.admin-crown {
+  position: absolute;
+  top: 4px;
+  right: -26px;
 }
 
 .to-edit-div {
   width: 100%;
-  border-bottom: 3px solid #272826;
-  margin-bottom: 1.125em;
   position: relative;
 }
 
@@ -658,9 +710,61 @@ main {
   right: 1.875em;
 }
 
+.delete-fridge {
+  right: 10em;
+}
+
+.delete-user {
+  position: absolute;
+  top: 4px;
+  right: -30px;
+}
+
+.make-admin-crown {
+  position: absolute;
+  right: -30px;
+}
+
+.make-admin-crown:hover {
+  stroke: #272826;
+}
+
+.confirmation-modal {
+  position: absolute;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(244, 244, 244, 1);
+  flex-direction: column;
+  top: 140px;
+  text-align: center;
+}
+
+.confirmation-text {
+  margin-bottom: 1.5em;
+}
+
+.confirmation-buttons {
+  justify-content: space-around;
+}
+
+.conf-btn {
+  border: #272826 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+  min-width: 100px;
+  transition: background 0.3s ease-in-out;
+}
+
+.conf-btn:hover {
+  background: #d1d1d1;
+}
+
 .bottom-pers-acc {
+  border-top: 3px solid #272826;
   justify-content: space-around;
   align-items: center;
+  margin-top: auto;
+  padding-top: 1em;
 }
 
 .code-name {
@@ -795,16 +899,6 @@ main {
   margin: 0em 0 0 -15em;
 }
 
-.about-header {
-  margin: 0;
-}
-
-.about-line {
-  position: absolute;
-  top: 5.625em;
-  left: -8.9375em;
-}
-
 .about-text {
   max-width: 28em;
   font-size: 1.5rem;
@@ -817,6 +911,64 @@ main {
   border-radius: 30px;
   border: 3px solid #66D9A2;
   box-shadow: 0px 0px 30px 5px #66D9A2;
+}
+
+/* Create Fridge */
+
+.frame {
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  z-index: 100;
+  top: 34%;
+  left: 90%;
+  padding: 50px;
+  border-radius: 20px;
+  background: rgba(244, 244, 244, 0.86);
+}
+
+.create-fridge-form {
+  flex-direction: column;
+}
+
+.create-fridge-input {
+  border-radius: 1.375em;
+  border: 0.125em solid #272826;
+  background: #E8E8E8;
+  max-width: 30.625em;
+  padding: 0.75em;
+  font-size: 1.25rem;
+  margin-bottom: 1.25em;
+}
+
+.close-button {
+  color: #272826;
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  font-size: 1.5rem;
+}
+
+.close-button:hover {
+  font-weight: bold;
+}
+
+.create-fridge-btn {
+  transition: transform 0.3s ease-in-out;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.create-fridge-btn:hover {
+  transform: scale(1.25);
+}
+
+.dark {
+  position: fixed;
+  width: 300%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
 }
 
 /*Download app*/
@@ -1341,4 +1493,120 @@ main {
 
 .footer-year-block {
   margin: 0.8em 0 0 14em;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    max-width: 90%;
+  }
+
+  .lines {
+    display: none;
+  }
+
+  .main_bg {
+    content: url(Pictures/Rectangle\ 213.png);
+    box-shadow: none;
+    top: -21em;
+  }
+
+  .wrapper {
+    margin-top: 4em;
+    margin-bottom: 8em;
+    padding: 1.5em;
+    padding-bottom: 2.5em;
+  }
+
+  .greeting {
+    max-width: 100%;
+  }
+
+  .privet {
+    font-size: 4.5rem;
+  }
+
+  .newld {
+    padding-top: 5em;
+    font-size: 1.2rem;
+  }
+
+  .privet-info {
+    font-size: 1rem;
+  }
+
+  .stay-frash {
+    font-size: 1.2rem;
+  }
+
+  .overlay {
+    top: 66%;
+    bottom: 0;
+    width: 100%;
+    height: 187px;
+  }
+
+  .overlay-content {
+    padding: 1em;
+  }
+
+  .form-list {
+    flex-direction: row;
+  }
+
+  .form-item {
+    position: relative;
+  }
+
+  .form-input {
+  }
+
+  .form-fp {
+    margin-bottom: 1em;
+  }
+
+  .reg-btn {
+    font-size: 1rem;
+  }
+
+  .mobile-arrow {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+  }
+
+  .about-us {
+    margin: 0;
+  }
+
+  .about-div {
+    display: block;
+  }
+
+  .about-texts {
+    margin: 0;
+  }
+
+  .about-heading{
+    margin: 0 0 0 -9em;
+  }
+  
+  .about-text {
+    font-size: 1rem;
+    padding-top: 2em;
+    max-width: 280px;
+  }
+  
+  .people {
+
+  }
+
+  .heading-text {
+    font-size: 3rem;
+  }
+
+  .orange-line {
+    width: 2em !important;
+  }
+
+  
 }

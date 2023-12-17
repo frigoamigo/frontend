@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class RegistrationForm extends React.Component {
   constructor(props) {
@@ -11,17 +12,16 @@ class RegistrationForm extends React.Component {
       isEmailValid: true,
       isPasswordValid: true,
       isNameValid: true,
+      isLoading: false,
     };
   }
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
-    // Update the state for the changed input field
     this.setState({
       [name]: value,
     });
 
-    // Perform real-time validation based on the input field
     if (name === 'email') {
       this.setState({
         isEmailValid: this.isEmailValid(value),
@@ -48,7 +48,7 @@ class RegistrationForm extends React.Component {
   };
 
   isNameValid = (name) => {
-    const nameRegex = /^[a-zA-Z][a-zA-Z0-9-_.]{1,20}$/i;
+    const nameRegex = /^[a-zA-Zа-яА-Я][a-zA-Zа-яА-Я0-9-_.]{1,20}$/i;
     return nameRegex.test(name);
   };
 
@@ -58,23 +58,41 @@ class RegistrationForm extends React.Component {
     const isPasswordValid = this.isPasswordValid(password);
     const isNameValid = this.isNameValid(name);
 
-    this.setState({ isEmailValid, isPasswordValid, isNameValid });
+    this.setState({ isLoading: true, isEmailValid, isPasswordValid, isNameValid });
 
     if (isEmailValid && isPasswordValid && isNameValid) {
-      console.log('Registration successful!');
-      this.props.toggleShift();
+      const postData = async () => {
+        try {
+          const response = await axios.post('http://localhost:8080/auth/register', {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password
+          });
+
+          console.log(response.data);
+        } catch (error) {
+          console.error(`Error posting data: ${error}`);
+        } finally {
+          this.setState({ isLoading: false });
+        }
+      };
+
+      postData().then(() => {
+        this.props.toggleShift();
+      });
+
     }
   };
 
   render() {
     const { isLoginButtonClicked } = this.props;
-    const { email, password, name } = this.state;
+    const { email, password, name, isLoading } = this.state;
 
     const isEmailValid = this.isEmailValid(email);
     const isPasswordValid = this.isPasswordValid(password);
     const isNameValid = this.isNameValid(name);
 
-    const isButtonDisabled = !isEmailValid || !isPasswordValid || !isNameValid;
+    const isButtonDisabled = isLoading || !isEmailValid || !isPasswordValid || !isNameValid;
 
     return (
       <form style={{ display: isLoginButtonClicked ? 'none' : 'flex' }}>
@@ -88,7 +106,7 @@ class RegistrationForm extends React.Component {
               value={email}
               onChange={this.handleInputChange}
             />
-            {!isEmailValid && <p className="error-message">Неверный формат email</p>}
+            {!isEmailValid && email.length > 0 && <p className="error-message">Неверный формат email</p>}
           </li>
           <li className='form-item'>
             <input
@@ -99,7 +117,7 @@ class RegistrationForm extends React.Component {
               value={password}
               onChange={this.handleInputChange}
             />
-            {!isPasswordValid && <p className="error-message">Неверный формат пароля</p>}
+            {!isPasswordValid && password.length > 0 && <p className="error-message">Неверный формат пароля</p>}
           </li>
           <li className='form-item'>
             <input
@@ -110,7 +128,7 @@ class RegistrationForm extends React.Component {
               value={name}
               onChange={this.handleInputChange}
             />
-            {!isNameValid && <p className="error-message">Введите ваш никнейм</p>}
+            {!isNameValid && name.length > 0 && <p className="error-message">Введите ваш никнейм</p>}
           </li>
           <li className='form-item mb'>
             <button
@@ -119,7 +137,11 @@ class RegistrationForm extends React.Component {
               onClick={this.handleRegistrationClick}
               disabled={isButtonDisabled}
             >
-              <span>Зарегистрироваться</span>
+              {this.state.isLoading ? (
+                <span className="loader"></span>
+              ) : (
+                <span>Зарегистрироваться</span>
+              )}
             </button>
           </li>
         </ul>
