@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {UserContext} from "../UserContext";
 
 class RegistrationForm extends React.Component {
   constructor(props) {
@@ -15,6 +16,8 @@ class RegistrationForm extends React.Component {
       isLoading: false,
     };
   }
+
+  static contextType = UserContext;
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -77,14 +80,13 @@ class RegistrationForm extends React.Component {
         }
       };
 
-      postData().then(() => {
-        this.props.toggleShift();
-      });
+      postData();
 
     }
   };
 
   render() {
+    const authenticated = this.context.authenticated;
     const { isLoginButtonClicked } = this.props;
     const { email, password, name, isLoading } = this.state;
 
@@ -95,7 +97,7 @@ class RegistrationForm extends React.Component {
     const isButtonDisabled = isLoading || !isEmailValid || !isPasswordValid || !isNameValid;
 
     return (
-      <form style={{ display: isLoginButtonClicked ? 'none' : 'flex' }}>
+      <form style={{ display: authenticated ? 'none' : 'flex' }}>
         <ul className='form-list flex'>
           <li className='form-item'>
             <input

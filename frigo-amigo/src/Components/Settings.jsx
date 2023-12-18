@@ -6,21 +6,22 @@ class Settings extends React.Component {
   static contextType = UserContext;
 
   handleLogoutClick = () => {
-    this.context.setUser(null);
+    this.context.logout();
     window.location.reload();
   }
   render() {
+    const user = this.context.user;
     return (
       <div className='settings-block'>
         <p className='nextart-900 settings-header'>Настройки</p>
         <ul className='list-reset settings-list flex'>
           <li className='settings-item flex'>
             <label className='settings-label manrope-400'>Никнейм</label>
-            <input className='settings-input'></input>
+            <input className='settings-input' placeholder={user.name}></input>
           </li>
           <li className='settings-item flex'>
             <label className='settings-label manrope-400'>Логин</label>
-            <input className='settings-input'></input>
+            <input className='settings-input' placeholder={user.email}></input>
           </li>
           <li className='settings-item flex'>
             <label className='settings-label manrope-400'>Пароль</label>
@@ -29,7 +30,12 @@ class Settings extends React.Component {
           <li className='settings-item flex'>
             <label className='settings-label manrope-400'>Премиум подписка</label>
             <div className='change-plan flex'>
-              <input className='settings-input plan-input'></input>
+              <input className='settings-input plan-input'
+                     placeholder={this.context.fridgeName ? user.fridges
+                         .filter((fridge) => fridge.name === this.context.fridgeName)[0]
+                         .premiumUntil ? 'До ' + user.fridges
+                         .filter((fridge) => fridge.name === this.context.fridgeName)[0]
+                         .premiumUntil : 'Нет премиума' : 'Выберите холодильник'}></input>
               <button className='btn-reset change-plan-btn manrope-400'>Изменить план</button>
             </div>
           </li>
