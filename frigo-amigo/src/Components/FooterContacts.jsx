@@ -23,7 +23,7 @@ const FooterContacts = () => {
                         </svg>
                     </div>
                     <div className="footer-email-adress-items" style={{marginLeft: "1.5em"}}>
-                        Санкт-Петербург, 10-я линия Васильевского острова 49, 199178
+                        Санкт-Петербург, 10-я линия Васильевского острова 49
                     </div>
                 </div>
             </div>

@@ -9,7 +9,8 @@ const AboutUs = () => {
         <div className='about-div flex'>
           <div className='about-texts'>
             <div className='about-heading'>
-                <Heading heading="О нас" lineWidth="6.5em" lineMargin="1em"/>
+                <div className='about-heading-web-desktop'><Heading heading="О нас" lineWidth="6.5em" lineMargin="1em"/></div>
+                <div className='about-heading-web-mobile'><Heading heading="О нас" lineWidth="2em" lineMargin="1em"/></div>
             </div>
             <p className='about-text roundedmplus-400'>
               Создатели FrigoAmigo - команда инициативных студентов факультета искусств
@@ -25,6 +26,7 @@ const AboutUs = () => {
         </div>
       </div>
     </div>
+    
   )
 }
 
