@@ -899,6 +899,14 @@ main {
   margin: 0em 0 0 -15em;
 }
 
+.about-heading-web-desktop{
+  display: block;
+}
+
+.about-heading-web-mobile{
+  display: none;
+}
+
 .about-text {
   max-width: 28em;
   font-size: 1.5rem;
@@ -1054,6 +1062,14 @@ main {
 
 /*Recipes*/
 
+.recipe-heading-web-desktop {
+  display: block;
+}
+
+.recipe-heading-web-mobile {
+  display: none;
+}
+
 .cards-list {
   list-style-type: none;
   margin: 5em 0 0 -2.5em;
@@ -1074,13 +1090,15 @@ main {
   z-index: 1;
   margin: 10em 0 0 87%;
   color: #FFF;
-  max-width: 50em;
+  max-width: 100em;
+
 }
+
 
 .recipe-image {
   position: absolute;
   margin: 0 0 0 0;
-  max-width: 110em;
+  max-width: 100%;
   box-shadow: 0px 1px 10px 0px rgb(104, 104, 104);
 }
 
@@ -1122,7 +1140,7 @@ main {
   position: absolute;
   z-index: 1;
   color: #fff;
-  margin: 21.5em 0 0 3em;
+  margin: 23.5em 0 0 3em;
   font-size: 2rem;
   letter-spacing: 0.1em;
 }
@@ -1177,6 +1195,14 @@ main {
   letter-spacing: 0.08em;
 }
 
+.premium-text-web-desktop{
+  display: block;
+}
+
+.premium-text-web-mobile{
+  display: none;
+}
+
 .premium-words-design {
   color: #EC9A29;
 }
@@ -1205,6 +1231,14 @@ main {
   width: 93em;
   height: 22em;
 
+}
+
+.premium-cards-block-web-desktop{
+  display: flex;
+}
+
+.premium-cards-block-web-mobile{
+  display: none;
 }
 
 .premium-cards-list {
@@ -1331,6 +1365,14 @@ main {
   vertical-align: middle;
 }
 
+.premium-btn-desktop{
+  display: inline;
+}
+
+.premium-btn-mobile{
+  display: none;
+}
+
 .premium-btn-text {
   margin: 0 1em 0 0;
 }
@@ -1383,6 +1425,14 @@ main {
   width: 100em;
   height: 8em;
   /* background-color: #818181; */
+}
+
+.premium-lower-text-block-desktop{
+  display: block;
+}
+
+.premium-lower-text-block-mobile{
+  display: none;
 }
 
 .premium-lower-text-items {
@@ -1446,6 +1496,14 @@ main {
   margin: 74em 0 0 0;
 }
 
+.footer-heading-web-desktop {
+  display: block;
+}
+
+.footer-heading-web-mobile {
+  display: none;
+}
+
 .footer-contacts-block {
   position: absolute;
   margin: 3em 0 0 0;
@@ -1496,8 +1554,14 @@ main {
 }
 
 @media screen and (max-width: 480px) {
+  .App {
+    background-color: #e8e8e8;
+    min-height: 285em;
+    overflow-x: hidden;
+  }
+
   .container {
-    max-width: 90%;
+    max-width: 100%;
   }
 
   .lines {
@@ -1576,6 +1640,7 @@ main {
 
   .about-us {
     margin: 0;
+    overflow: visible;
   }
 
   .about-div {
@@ -1587,7 +1652,16 @@ main {
   }
 
   .about-heading{
-    margin: 0 0 0 -9em;
+    margin: 0 0 0 -8em;
+  }
+
+  
+  .about-heading-web-desktop{
+    display: none;
+  }
+
+  .about-heading-web-mobile{
+    display: block;
   }
   
   .about-text {
@@ -1605,8 +1679,457 @@ main {
   }
 
   .orange-line {
-    width: 2em !important;
+    height: 4.35px;
   }
+
+  /*Recipes*/
+
+.recipe-heading-web-desktop {
+  display: none;
+}
+
+.recipe-heading-web-mobile {
+  display: block;
+  margin: 0 0 0 -6.5em;
+}
+
+.cards-list {
+  margin: 3em 0 0 -2.5em;
+}
+
+
+.recipe-card {
+  margin: 0 0 1em 0;
+}
+
+
+.recipe-arrow {
+  margin: -12.8em 0 0 82%;
+  max-width: 1em;
+}
+
+.recipe-image {
+  position: relative;
+  max-width: 100%;
+}
+
+.recipe-heading {
+  margin: -8.5em 0 0 1.5em;
+  font-size: 1.5rem;
+}
+
+.recipe-line {
+  margin: -11em 0 0 1.5em;
+  max-width: 15em;
+}
+
+.recipe-ingredients {
+  margin: -12em 0 0 3em;
+  font-size: 0.8rem;
+  letter-spacing: 0em;
+}
+
+.recipe-ingredients-items {
+  margin: -16.5em 0 0 2em;
+  font-size: 0.5rem;
+  letter-spacing: 0em;
+}
+
+.recipe-pfc-per-100 {
+  margin: -4em 0 0 3.5em;
+  font-size: 0.8rem;
+  letter-spacing: 0em;
+}
+
+.recipe-pfc-calories {
+  margin: -4em 0 0 10em;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.recipe-button {
+  margin: 0 0 0 25%;
+}
+
+.recipe-button-design {
+  font-size: 0.8rem;
+}
+
+/*Premium*/
+
+.premium-block {
+  position: absolute;
+  margin: 5em 0 0 0;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+  height: 43em;
+  background-color: #fff;
+  box-shadow: 0px 1px 12px 0px rgb(104, 104, 104);
+}
+
+.premium-heading-first {
+  margin: 0.2em 0 0 -0.3em;
+  font-size: 4.5rem;
+}
+
+.premium-text {
+  margin: 9em 4em 0 0;
+  text-align: none;
+  font-size: 0.8rem;
+  letter-spacing: -0.05em;
+} 
+
+.premium-text-web-desktop{
+  display: none;
+}
+
+.premium-text-web-mobile{
+  display: block;
+}
+
+#premium-text-line1{
+  margin: 0 0 0 3em;
+  text-align: left;
+  max-width: 20em;
+}
+
+#premium-text-line2{
+  margin: -2em -2em 0 0;
+}
+
+#premium-text-line3{
+  margin: -0.5em 3em 0 0;
+}
+
+.premium-heading-second {
+  margin: -1.65em 0 0 0.6em;
+  font-size: 7rem;
+}
+
+/*Premium Cards*/
+
+.premium-stars {
+  margin: 5.5em 0 0 2em;
+  width: 2.5em;
+}
+
+.premium-cards-block1 {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  margin: 5em 0 0 0;
+  max-width: 20em;
+  height: 22em;
+}
+
+.premium-cards-block2 {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  margin: 15em 0 0 0;
+  max-width: 20em;
+  height: 22em;
+}
+
+.premium-cards-block-web-desktop{
+  display: none;
+}
+
+.premium-cards-block-web-mobile{
+  display: flex;
+  max-width: 20em;
+}
+
+.premium-cards-list {
+  list-style-type: none;
+  margin: 0 7em 0 0;
+  position: relative;
+}
+
+.premium-card-box {
+  position: absolute;
+  z-index: 2;
+  width: 8em;
+  height: 8em;
+  text-align: center;
+  background-color: #fff;
+  /* border: 2px solid #66D9A2; */
+  border-radius: 30px;
+  box-shadow: 1px 1px 10px 4px #66D9A2;
+}
+
+.premium-card-box-orange {
+  position: absolute;
+  z-index: 2;
+  width: 8em;
+  height: 8em;
+  text-align: center;
+  background-color: #e8e8e8;
+  /* border: 2px solid #EC9A29; */
+  border-radius: 30px;
+  box-shadow: 1px 1px 10px 4px #EC9A29;
+}
+
+.premium-card-heading {
+  margin: 1em 0 0 0;
+  font-size: 1.2em;
+  color: #66D9A2;
+}
+
+.premium-card-heading-orange {
+  margin: 1.5em 0 0 0;
+  font-size: 1.2em;
+  color: #000;
+}
+
+.premium-card-price {
+  margin: 1.5em 0 0 0;
+  font-size: 0.6em;
+}
+
+.premium-btn-hover {
+  margin: 1.5em 0 0 0;
+  width: 11em;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  height: 3.5em;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 50px;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.premium-btn-hover-orange {
+  margin: 1.5em 0 0 0;
+  width: 11em;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #EC9A29;
+  cursor: pointer;
+  height: 3.5em;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 50px;
+}
+
+.premium-btn-hover-orange .premium-btn-items svg {
+  fill: #EC9A29;
+}
+
+.premium-btn-hover:hover {
+  background-position: 100% 0;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.premium-btn-hover-orange:hover {
+  background-color: #EC9A29;
+  border: 2px solid #fff;
+  color: #fff;
+  stroke: #fff;
+}
+
+.premium-btn-hover-orange .premium-btn-items svg:hover {
+  fill: #fff;
+}
+
+.premium-btn-hover:focus {
+  outline: none;
+}
+
+.premium-btn-hover.color {
+  background-image: linear-gradient(to right, #66D9A2, #66d9a175, #66d9a175, #66D9A2);
+}
+
+.color-orange {
+  background-color: #e8e8e8;
+  border: 2px solid #EC9A29;
+  color: #EC9A29;
+  stroke: #EC9A29;
+}
+
+.premium-btn-items {
+  display: inline;
+  vertical-align: middle;
+}
+
+.premium-btn-desktop{
+  display: none;
+}
+
+.premium-btn-mobile{
+  display: inline;
+}
+
+.premium-btn-text {
+  margin: 0 1em 0 0;
+}
+
+/*Premium circles*/
+
+.premium-circles-block {
+  position: absolute;
+  width: 60em;
+  height: 30em;
+}
+
+.premium-circle-first {
+  position: absolute;
+  z-index: 0;
+  margin: 23em 0 0 3em;
+  width: 15em;
+  height: 15em;
+  background-color: #66d9a13f;
+  border-radius: 1000px;
+}
+
+.premium-circle-outer {
+  position: absolute;
+  z-index: 0;
+  margin: 26em 0 0 -4em;
+  width: 15em;
+  height: 15em;
+  border: 10px solid #66d9a13f;
+  border-radius: 1000px;
+}
+
+.premium-circle-inner {
+  position: absolute;
+  z-index: 0;
+  margin: 0.35em 1em 1em 0.4em;
+  width: 13em;
+  height: 13em;
+  background-color: #66d9a13f;
+  border-radius: 1000px;
+}
+
+/*Premium lower text*/
+
+
+.premium-lower-text-block {
+  position: absolute;
+  z-index: 1;
+  margin: 25em 0 0 0;
+  width: 100em;
+  height: 8em;
+  font-size: 0.5rem;
+  /* background-color: #818181; */
+}
+
+.premium-lower-text-block-desktop{
+  display: none;
+}
+
+.premium-lower-text-block-mobile{
+  display: block;
+}
+
+.premium-lower-text-items {
+  display: inline;
+}
+
+.premium-new {
+  margin: 18.5em 0 0 2em;
+  font-size: 1rem;
+}
+
+.premium-free {
+  margin: -10em 0 0 10em;
+  font-size: 0.7rem;
+}
+
+.premium-free-btn {
+  margin: -4em 0 0 17em;
+}
+
+.premium-free-btn-hover {
+  margin: 3.3em 0 0 0;
+  width: 8em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #EC9A29;
+  cursor: pointer;
+  height: 3.2em;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 50px;
+}
+
+.premium-free-btn-hover .premium-btn-items svg {
+  fill: #66D9A2;
+}
+
+.premium-free-btn-hover:hover {
+  background-color: #66D9A2;
+  color: #fff;
+  stroke: #fff;
+}
+
+.premium-free-btn-hover .premium-btn-items svg:hover {
+  fill: #fff;
+}
+
+
+.color-green {
+  background-color: #fff;
+  box-shadow: 1px 1px 10px 4px #66D9A2;
+  color: #66D9A2;
+  stroke: #66D9A2;
+}
+
+
+/*Footer contacts*/
+
+.footer-heading {
+  margin: 55em 0 0 0;
+}
+
+.footer-heading-web-desktop {
+  display: none;
+}
+
+.footer-heading-web-mobile {
+  display: block;
+  margin: 0 0 0 -6.5em;
+}
+
+.footer-contacts-block {
+  margin: 4em 0 0 0;
+  font-size: 0.7rem;
+}
+
+.footer-email-adress-block {
+  margin: 5em 0 0 -8em;
+}
+
+.footer-email-adress-items {
+  letter-spacing: -0.02rem;
+}
+
+.footer-widgets-year-block {
+  margin: -1.5em 0 0 -9em;
+}
+
+.footer-year-block {
+  margin: 11em 0 0 15.5em;
+}
+
 
   
 }
