@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { UserContext } from '../UserContext';
-import 'animate.css';
+// import 'animate.css';
 
 class LoginFormMobile extends React.Component {
   static contextType = UserContext;
