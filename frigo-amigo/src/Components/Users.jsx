@@ -1,5 +1,6 @@
 import React from 'react';
 import {UserContext} from "../UserContext";
+import axios from "axios";
 
 class Users extends React.Component {
     constructor(props) {
@@ -63,6 +64,7 @@ class Users extends React.Component {
     };
 
     handleDelete = (user) => {
+
         this.setState({
             userToDelete: user,
             showDeleteConfirmation: true,
@@ -70,8 +72,31 @@ class Users extends React.Component {
     };
 
     confirmDelete = () => {
-        this.setState(prevState => ({
-            users: prevState.users.filter(user => user.id !== prevState.userToDelete.id),
+        const postDeleteUser = async () => {
+            try {
+                let body = {
+                    fridgeName: this.context.fridgeName,
+                    ownerEmail: this.context.user.email,
+                    userEmail: this.state.userToDelete
+                }
+                const response = await axios.post('http://localhost:8080/users/delete', body, {withCredentials: true});
+                console.log(response.data);
+
+                if (response.status === 200) {
+                    let body = {
+                        userEmail: this.context.user.email
+                    }
+                    const secondResponse =
+                        await axios.post('http://localhost:8080/user/getuserData', body, {withCredentials: true});
+                    console.log(secondResponse.data);
+                    this.context.setUser(secondResponse.data);
+                }
+            } catch (error) {
+                console.error(`Error posting data: ${error}`);
+            }
+        }
+        postDeleteUser();
+        this.setState(() => ({
             userToDelete: null,
             showDeleteConfirmation: false,
         }));
@@ -105,14 +130,40 @@ class Users extends React.Component {
         });
     };
 
+    handleChangeInviteCode = () => {
+
+        const postInviteCode = async () => {
+            try {
+                let body = {
+                    fridgeName: this.context.fridgeName,
+                    ownerEmail: this.context.user.email
+                }
+                const response =
+                    await axios.post('http://localhost:8080/fridge/changeInviteCode',
+                        body, {withCredentials: true});
+                console.log(response.data);
+                if (response.status === 200) {
+                    let body = {
+                        userEmail: this.context.user.email
+                    }
+                    const secondResponse =
+                        await axios.post('http://localhost:8080/user/getUserData', body, {withCredentials: true});
+                    console.log(secondResponse.data);
+                    this.context.setUser(secondResponse.data);
+                }
+            } catch (error) {
+                console.error(`Error posting data: ${error}`);
+            }
+
+        }
+        postInviteCode();
+    }
+
     render() {
         const user = this.context.user;
-        console.log(user.fridges[0].fridgeName)
-        console.log(this.context)
-        console.log(user.fridges.filter((fridge) => fridge.name === this.context.name))
         return (
             <div className='users-block flex'>
-                <p className='fridge-name nextart-900'> Мой холодильник </p>
+                <p className='fridge-name nextart-900'> {this.context.fridgeName ? this.context.fridgeName : 'FRIGOAMIGO'} </p>
                 <p className='users manrope-400'>Пользователи</p>
                 <ul className='users-list'>
                     <li className='users-item'>
@@ -125,10 +176,11 @@ class Users extends React.Component {
                                 stroke="#272826" strokeWidth="2"/>
                         </svg>
                     </li>
-                    {user.fridges.filter((fridge) => fridge.name === this.context.fridgeName)[0].usersEmails.map((user) => (
+                    {this.context.fridgeName ?
+                        user.fridges.filter((fridge) => fridge.name === this.context.fridgeName)[0].usersEmails.map((user) => (
                         <li className='users-item' key={user}>
                             <p className='user-name manrope-400'>{user}</p>
-                            {this.showDeleteIcons && (
+                            {this.state.showDeleteIcons && (
                                 <button className='btn-reset delete-user' onClick={() => this.handleDelete(user)}>
                                     <svg width="26" height="22" viewBox="0 0 26 22" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +190,7 @@ class Users extends React.Component {
                                     </svg>
                                 </button>
                             )}
-                            {this.showMakeAdminIcon && (
+                            {this.state.showMakeAdminIcon && (
                                 <button className='btn-reset delete-user' onClick={() => this.handleMakeAdmin(user)}>
                                     <svg className='make-admin-crown' width="24" height="24" viewBox="0 0 24 24"
                                          fill="none"
@@ -150,13 +202,15 @@ class Users extends React.Component {
                                 </button>
                             )}
                         </li>
-                    ))}
+
+                    )) :
+                    <p className='manrope-400'>Создайте холодильник</p>}
                 </ul>
                 {
-                    this.showDeleteConfirmation && (
+                    this.state.showDeleteConfirmation && (
                         <div className='confirmation-modal flex'>
                             <p className='confirmation-text manrope-400'>Вы уверены, что хотите удалить
-                                пользователя {this.userToDelete.name}?</p>
+                                пользователя {this.state.userToDelete.name}?</p>
                             <div className='confirmation-buttons flex'>
                                 <button className='btn-reset conf-btn manrope-700' onClick={this.confirmDelete}>Да</button>
                                 <button className='btn-reset conf-btn manrope-700' onClick={this.cancelDelete}>Отмена</button>
@@ -165,10 +219,10 @@ class Users extends React.Component {
                     )
                 }
                 {
-                    this.showMakeUserAdminConfirmation && (
+                    this.state.showMakeUserAdminConfirmation && (
                         <div className='confirmation-modal flex'>
                             <p className='confirmation-text manrope-400'>Вы уверены, что хотите сделать
-                                пользователя {this.userToMakeAdmin.name} администратором? Он сможет удалять других пользователей
+                                пользователя {this.state.userToMakeAdmin.name} администратором? Он сможет удалять других пользователей
                                 и назначать
                                 администраторов.</p>
                             <div className='confirmation-buttons flex'>
@@ -179,7 +233,7 @@ class Users extends React.Component {
                     )
                 }
                 <div className='to-edit-div'>
-                    {this.isEditMode ? (
+                    {this.state.isEditMode ? (
                         <>
                             <button onClick={this.saveChanges} className='to-edit save btn-reset nextart-400'>
                                 Сохранить
@@ -194,19 +248,24 @@ class Users extends React.Component {
                         </button>
                     )}
                 </div>
-                <div className='bottom-pers-acc flex'>
-                    <span className='code-name nextart-400'>код доступа</span>
-                    <div className='code flex'>
-                        <span className='manrope-400 code-nums'>{this.code}</span>
-                        <button
-                            className='btn-reset code-arrow'
-                            onClick={this.handleClickCode}>
-                        </button>
+                {this.context.fridgeName && (
+                    <div className='bottom-pers-acc flex'>
+                        <span className='code-name nextart-400'>код доступа</span>
+                        <div className='code flex'>
+                        <span className='manrope-400 code-nums'>
+                            {user.fridges
+                                .filter((fridge) => fridge.name === this.context.fridgeName)[0]
+                                .inviteCode}</span>
+                            <button
+                                className='btn-reset code-arrow'
+                                onClick={this.handleChangeInviteCode}>
+                            </button>
+                        </div>
+                        <div className='lock-div'>
+                            <button className='btn-reset code-lock'></button>
+                        </div>
                     </div>
-                    <div className='lock-div'>
-                        <button className='btn-reset code-lock'></button>
-                    </div>
-                </div>
+                )}
             </div>
         );
     }

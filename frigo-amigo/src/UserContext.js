@@ -18,7 +18,8 @@ class UserProvider extends React.Component {
     && localStorage.getItem('fridgeName') !== null
     && localStorage.getItem('fridgeName') !== undefined
     && localStorage.getItem('fridgeName') !== "null"
-        ? JSON.parse(localStorage.getItem('fridgeName')) : localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).fridges[0].name : null
+        ? JSON.parse(localStorage.getItem('fridgeName')) : localStorage.getItem('user') !== null
+            ? JSON.parse(localStorage.getItem('user')).fridges.length > 0 ? JSON.parse(localStorage.getItem('user')).fridges[0].name : null : null
   };
 
   setUser = (user) => {
@@ -36,9 +37,33 @@ class UserProvider extends React.Component {
     this.setState({ fridgeName });
   }
 
+  logout = () => {
+    localStorage.removeItem('authenticated');
+    localStorage.removeItem('user');
+    localStorage.removeItem('fridgeName');
+    this.setState({
+      authenticated: false,
+      user: null,
+      fridgeName: null
+    });
+  }
+
+  allDataLoaded = () => {
+    return this.state.user !== null && this.state.authenticated !== null && this.state.fridgeName !== null;
+  }
+
   render() {
     return (
-      <UserContext.Provider value={{ user: this.state.user, setUser: this.setUser, setAuthenticated: this.setAuthenticated, authenticated: this.state.authenticated, setFridgeName: this.setFridgeName, fridgeName: this.state.fridgeName}}>
+      <UserContext.Provider value={{
+            user: this.state.user,
+            setUser: this.setUser,
+            setAuthenticated: this.setAuthenticated,
+            authenticated: this.state.authenticated,
+            setFridgeName: this.setFridgeName,
+            fridgeName: this.state.fridgeName,
+            logout: this.logout,
+            allDataLoaded: this.allDataLoaded
+      }}>
         {this.props.children}
       </UserContext.Provider>
     );

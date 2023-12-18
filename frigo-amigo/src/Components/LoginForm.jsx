@@ -25,11 +25,12 @@ class LoginForm extends React.Component {
         const response = await axios.post('http://localhost:8080/auth/login', {
           email: email,
           password: password
-        });
+        }, {withCredentials: true});
         console.log(response.data);
         const user = response.data.userData;
         this.context.setUser(user);
         this.context.setAuthenticated(true);
+        this.context.setFridgeName(user.fridges[0].name);
       } catch (error) {
         console.error(`Error posting data: ${error}`);
       } finally {

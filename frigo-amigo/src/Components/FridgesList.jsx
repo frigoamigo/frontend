@@ -56,11 +56,11 @@ class FridgesList extends React.Component {
             {/*  </li>*/}
             {/*</ul>*/}
             <ul className='fridges-list flex list-reset'>
-              {user.fridges.map((fridge) => (
+              {this.context.fridgeName ? user.fridges.map((fridge) => (
                 <li className='fridges-item' onClick={() => this.handleChooseFridge(fridge)}>
                   <p className='fridges-name manrope-400'>{fridge.name}</p>
                 </li>
-              ))}
+              )) : (<p className='fridges-name manrope-400'>Создайте холодильник</p>)}
 
             </ul>
             <button className='create-fridge btn-reset manrope-400' onClick={this.handleCreateFridgeClick}>Создать холодильник</button>

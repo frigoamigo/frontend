@@ -23,14 +23,22 @@ class PersonalAccount extends React.Component {
   };
 render()
     {
+        const authenticated = this.context.authenticated;
+
+        if (!this.context.allDataLoaded) {
+            return <div>Loading...</div>;
+        }
+
         return (
             <div className='pers-acc'>
+
                 <div className={`settings-circle ${this.state.isSettingsClicked ? 'expanded' : ''}`}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="133" height="128" viewBox="0 0 133 128" fill="none">
                         <ellipse cx="95.5" cy="35" rx="93" ry="93" fill="#EC9A29" fillOpacity="0.56"/>
                     </svg>
                 </div>
-                <button className={`settings btn-reset ${this.state.isTurned ? 'turned' : ''}`} onClick={this.handleSettingsClick}>
+                <button className={`settings btn-reset ${this.state.isTurned ? 'turned' : ''}`}
+                        onClick={this.handleSettingsClick}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
                         <path
                             d="M30 37.5C34.1421 37.5 37.5 34.1421 37.5 30C37.5 25.8579 34.1421 22.5 30 22.5C25.8579 22.5 22.5 25.8579 22.5 30C22.5 34.1421 25.8579 37.5 30 37.5Z"
@@ -40,11 +48,12 @@ render()
                             stroke="#272826" strokeWidth="3.75"/>
                     </svg>
                 </button>
+
                 {this.state.isSettingsClicked && (
                     <Settings style={{opacity: 1}}/>
                 )}
 
-                {!this.state.isSettingsClicked && this.context.authenticated && (
+                {!this.state.isSettingsClicked && authenticated && this.context.allDataLoaded && (
                     <Users style={{opacity: 0}}/>
                 )}
             </div>
