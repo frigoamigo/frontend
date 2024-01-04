@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {UserContext} from "../UserContext";
+import { UserContext } from '../../../UserContext';
 
 class RegistrationForm extends React.Component {
   constructor(props) {
@@ -41,7 +41,8 @@ class RegistrationForm extends React.Component {
   };
 
   isEmailValid = (email) => {
-    const emailRegex = /^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)+[a-z0-9]{2,}$/i;
+    const emailRegex =
+      /^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)+[a-z0-9]{2,}$/i;
     return emailRegex.test(email);
   };
 
@@ -69,7 +70,7 @@ class RegistrationForm extends React.Component {
           const response = await axios.post('http://localhost:8080/auth/register', {
             name: this.state.name,
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
           });
 
           console.log(response.data);
@@ -81,13 +82,11 @@ class RegistrationForm extends React.Component {
       };
 
       postData();
-
     }
   };
 
   render() {
     const authenticated = this.context.authenticated;
-    const { isLoginButtonClicked } = this.props;
     const { email, password, name, isLoading } = this.state;
 
     const isEmailValid = this.isEmailValid(email);
@@ -98,41 +97,47 @@ class RegistrationForm extends React.Component {
 
     return (
       <form style={{ display: authenticated ? 'none' : 'flex' }}>
-        <ul className='form-list flex'>
-          <li className='form-item'>
+        <ul className="form-list flex">
+          <li className="form-item">
             <input
-              type='text'
+              type="text"
               className={`form-input manrope-100 ${isEmailValid ? '' : 'invalid'}`}
-              name='email'
+              name="email"
               placeholder="Логин"
               value={email}
               onChange={this.handleInputChange}
             />
-            {!isEmailValid && email.length > 0 && <p className="error-message">Неверный формат email</p>}
+            {!isEmailValid && email.length > 0 && (
+              <p className="error-message">Неверный формат email</p>
+            )}
           </li>
-          <li className='form-item'>
+          <li className="form-item">
             <input
-              type='password'
+              type="password"
               className={`form-input manrope-100 ${isPasswordValid ? '' : 'invalid'}`}
-              name='password'
+              name="password"
               placeholder="Пароль"
               value={password}
               onChange={this.handleInputChange}
             />
-            {!isPasswordValid && password.length > 0 && <p className="error-message">Неверный формат пароля</p>}
+            {!isPasswordValid && password.length > 0 && (
+              <p className="error-message">Неверный формат пароля</p>
+            )}
           </li>
-          <li className='form-item'>
+          <li className="form-item">
             <input
-              type='text'
+              type="text"
               className={`form-input manrope-100 ${isNameValid ? '' : 'invalid'}`}
-              name='name'
+              name="name"
               placeholder="Никнейм"
               value={name}
               onChange={this.handleInputChange}
             />
-            {!isNameValid && name.length > 0 && <p className="error-message">Введите ваш никнейм</p>}
+            {!isNameValid && name.length > 0 && (
+              <p className="error-message">Введите ваш никнейм</p>
+            )}
           </li>
-          <li className='form-item mb'>
+          <li className="form-item mb">
             <button
               className={`form-btn manrope-100 ${isButtonDisabled ? 'disabled' : ''}`}
               type="button"
