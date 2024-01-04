@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { UserContext } from '../UserContext';
+import { UserContext } from '../../../UserContext';
 
 class LoginForm extends React.Component {
   static contextType = UserContext;
@@ -11,21 +11,25 @@ class LoginForm extends React.Component {
       email: '',
       password: '',
       isLoading: false,
-      isButtonDisabled: false, 
+      isButtonDisabled: false,
     };
   }
 
   handleLoginClick = () => {
     const { email, password } = this.state;
 
-    this.setState({ isLoading: true, isButtonDisabled: true }); 
+    this.setState({ isLoading: true, isButtonDisabled: true });
 
     const postData = async () => {
       try {
-        const response = await axios.post('http://localhost:8080/auth/login', {
-          email: email,
-          password: password
-        }, {withCredentials: true});
+        const response = await axios.post(
+          'http://localhost:8080/auth/login',
+          {
+            email: email,
+            password: password,
+          },
+          { withCredentials: true },
+        );
         console.log(response.data);
         const user = response.data.userData;
         this.context.setUser(user);
@@ -39,7 +43,7 @@ class LoginForm extends React.Component {
     };
 
     postData();
-  }
+  };
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -52,39 +56,35 @@ class LoginForm extends React.Component {
 
     return (
       <form style={{ display: isLoginButtonClicked ? 'none' : 'flex' }}>
-        <ul className='form-list flex'>
-          <li className='form-item'>
+        <ul className="form-list flex">
+          <li className="form-item">
             <input
-              type='text'
-              className='form-input manrope-100'
-              name='email'
+              type="text"
+              className="form-input manrope-100"
+              name="email"
               placeholder="Логин"
               value={email}
               onChange={this.handleInputChange}
             />
           </li>
-          <li className='form-item'>
+          <li className="form-item">
             <input
-              type='password'
-              className='form-input manrope-100'
-              name='password'
+              type="password"
+              className="form-input manrope-100"
+              name="password"
               placeholder="Пароль"
               value={password}
               onChange={this.handleInputChange}
             />
           </li>
-          <li className='form-item'>
+          <li className="form-item">
             <button
-              className='form-btn manrope-100'
+              className="form-btn manrope-100"
               type="button"
               onClick={this.handleLoginClick}
-              disabled={isButtonDisabled} 
+              disabled={isButtonDisabled}
             >
-              {this.state.isLoading ? (
-                <span className="loader"></span>
-              ) : (
-                <span>Войти</span>
-              )}
+              {this.state.isLoading ? <span className="loader"></span> : <span>Войти</span>}
             </button>
           </li>
         </ul>
