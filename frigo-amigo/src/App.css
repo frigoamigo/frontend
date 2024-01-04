@@ -889,7 +889,7 @@ main {
 }
 
 .about-texts {
-  margin: 0em 5.625em 0 17.5em;
+  margin: 0em 5.625em 0 15.5em;
   position: relative;
 }
 
@@ -912,7 +912,7 @@ main {
 }
 
 .people {
-  margin: 3em -20em 0 5em;
+  margin: 3em -20em 0 -4em;
   max-height: 29em;
   border-radius: 30px;
   border: 3px solid #66d9a2;

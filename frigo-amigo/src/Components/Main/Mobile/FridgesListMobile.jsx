@@ -60,8 +60,8 @@ class FridgesListMobile extends React.Component {
                 />
               </svg>
             </button>
-            {/* <p className="admin-name manrope-300">{user.name}</p> */}
-            <p className="admin-name manrope-300">Username</p>
+             <p className="admin-name manrope-300">{user.name}</p>
+            {/*<p className="admin-name manrope-300">Username</p>*/}
 
             {/* <ul className="fridges-list flex list-reset">
               <li className="fridges-item">
@@ -76,13 +76,17 @@ class FridgesListMobile extends React.Component {
             </ul> */}
             <ul className="form-input fridge flex list-reset">
               {this.context.fridgeName ? (
-                user.fridges.map((fridge) => (
-                  <li className="fridges-item" onClick={() => this.handleChooseFridge(fridge)}>
-                    <p className="fridges-name manrope-400">{fridge.name}</p>
-                  </li>
-                ))
+                    user.fridges.map((fridge) => (
+                        <li
+                            key={fridge.id}
+                            className={`fridges-item ${activeFridge && activeFridge.id === fridge.id ? 'active' : ''}`}
+                            onClick={() => this.handleChooseFridge(fridge)}
+                        >
+                          <p className="fridges-name manrope-400">{fridge.name}</p>
+                        </li>
+                    ))
               ) : (
-                <p className="fridges-name manrope-400">Создайте холодильник</p>
+                  <p className="fridges-name manrope-400">Создайте холодильник</p>
               )}
             </ul>
           </div>

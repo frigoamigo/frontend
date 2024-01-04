@@ -184,8 +184,8 @@ class UsersMobile extends React.Component {
 
         <ul className="users-list">
           <li className="users-item">
-            {/* <p className="user-name manrope-400">{user.name}</p> */}
-            <p className="user-name manrope-400">Умоподрочитель</p>
+             <p className="user-name manrope-400">{user.name}</p>
+            {/*<p className="user-name manrope-400">Умоподрочитель</p>*/}
             <svg
               className="admin-crown"
               width="24"
