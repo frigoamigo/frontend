@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "name": "adadadad",
+      "email": "user6@user.ru",
+      "password": "123456aa",
+      "fridges": [
+        {
+          "name": "adadasd",
+          "ownerEmail": "user6@user.ru",
+          "usersEmails": ["aaa@aaa.aaa"],
+          "inviteCode": "xtbxfis",
+          "premiumUntil": "18/01/2024",
+          "premium": true
+        },
+        {
+          "name": "asfafsdf",
+          "ownerEmail": "user6@user.ru",
+          "usersEmails": ["bbb@bbb.bbb"],
+          "inviteCode": "zcfoagv",
+          "premiumUntil": null,
+          "premium": false
+        }
+      ]
+    }
+  ]
+}

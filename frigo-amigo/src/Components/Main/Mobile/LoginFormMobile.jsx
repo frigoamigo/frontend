@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { UserContext } from '../../../UserContext';
+import { UsersService } from '../../../Services/users.service';
 import 'animate.css';
 
 class LoginFormMobile extends React.Component {
@@ -25,12 +26,15 @@ class LoginFormMobile extends React.Component {
 
     const postData = async () => {
       try {
-        const response = await axios.post('http://localhost:8080/auth/login', {
-          email: email,
-          password: password
-        }, {withCredentials: true});
-        console.log(response.data);
-        const user = response.data.userData;
+        const data = await UsersService.getUsers();
+        const user = data.find((user) => user.email === email && user.password === password);
+
+        // const response = await axios.post('http://localhost:8080/auth/login', {
+        //   email: email,
+        //   password: password
+        // }, {withCredentials: true});
+        // console.log(response.data);
+        // const user = response.data.userData;
         this.context.setUser(user);
         this.context.setAuthenticated(true);
         this.context.setFridgeName(user.fridges[0].name);
@@ -42,27 +46,6 @@ class LoginFormMobile extends React.Component {
     };
 
     postData();
-
-    // Заглушка
-    //
-    // this.setState({ isLoading: true, isButtonDisabled: true });
-    //
-    // setTimeout(() => {
-    //   try {
-    //     const user = {
-    //       email: this.state.email,
-    //       fridges: [{ name: 'Мой холодильник' }],
-    //     };
-    //
-    //     this.context.setUser(user);
-    //     this.context.setAuthenticated(true);
-    //     this.context.setFridgeName(user.fridges[0].name);
-    //   } catch (error) {
-    //     console.error(`Error with mock login: ${error}`);
-    //   } finally {
-    //     this.setState({ isLoading: false, isButtonDisabled: false });
-    //   }
-    // }, 1000);
   };
 
   handleInputChange = (event) => {
