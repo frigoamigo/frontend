@@ -1490,6 +1490,40 @@ main {
   stroke: #66D9A2;
 }
 
+/*PREMIUM FREE POPUP*/
+
+.premium-free-pp {
+  box-shadow: 20px 20px 0px 0px #66d9a1a9;
+  border: solid 2px #818181;
+  border-radius: 10px;
+  width: 30em;
+  background-color: #e8e8e8;
+}
+
+.premium-pp-heading {
+  margin: 0.5em 0 0.2em 0;
+  font-size: 3rem;
+  color: #000;
+}
+
+.premium-private-data-block{
+  background-color: #fff;
+  margin: 0 0 0 1.7em;
+  width: 30em;
+  height: 6em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  font-size: 0.7em;
+}
+
+.premium-text-align{
+  text-align: left;
+  margin: 0 0 0 1.7em;
+  font-size: 0.8em;
+}
+
+
 /*Footer contacts*/
 
 .footer-heading {
