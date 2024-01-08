@@ -17,7 +17,7 @@ const PremiumLowerText = (props) => {
             // showCancelButton: true,
             focusConfirm: false,
             confirmButtonText: `
-              <i class="fa fa-thumbs-up"></i> Подключить
+              <i class="fa fa-thumbs-up premium-button-confirm"></i> Подключить
             `,
             confirmButtonAriaLabel: "Thumbs up, great!",
             cancelButtonText: `

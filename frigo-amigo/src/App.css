@@ -1523,6 +1523,41 @@ main {
   font-size: 0.8em;
 }
 
+.premium-button-confirm{
+  margin: 2em 0 0 0;
+  width: 11em;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  height: 3.5em;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 50px;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.premium-button-confirm:hover {
+  background-position: 100% 0;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.premium-button-confirm:focus {
+  outline: none;
+}
+
+.premium-button-confirm.color {
+  background-image: linear-gradient(to right, #66D9A2, #66d9a175, #66d9a175, #66D9A2);
+}
+
 
 /*Footer contacts*/
 
