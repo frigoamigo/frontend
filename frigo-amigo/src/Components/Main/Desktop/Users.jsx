@@ -7,12 +7,6 @@ class Users extends React.Component {
     super(props);
     this.state = {
       code: this.generate_code(),
-      // users: [
-      //     {id: 1, name: 'Марк Семакин'},
-      //     {id: 2, name: 'Саша Юшина'},
-      //     {id: 3, name: 'Дана Жураускас'},
-      //     {id: 4, name: 'Нелли Щеголева'},
-      // ],
       showDeleteIcons: false,
       showMakeAdminIcon: false,
       showDeleteConfirmation: false,

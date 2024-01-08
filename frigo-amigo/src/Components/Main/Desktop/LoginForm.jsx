@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { UserContext } from '../../../UserContext';
+import { UsersService } from '../../../Services/users.service';
 
 class LoginForm extends React.Component {
   static contextType = UserContext;
@@ -22,21 +23,26 @@ class LoginForm extends React.Component {
 
     const postData = async () => {
       try {
-        const response = await axios.post(
-          'http://localhost:8080/auth/login',
-          {
-            email: email,
-            password: password,
-          },
-          { withCredentials: true },
-        );
-        console.log(response.data);
-        const user = response.data.userData;
+        // Placeholder for login
+        const data = await UsersService.getUsers();
+        const user = data.find((user) => user.email === email && user.password === password);
+
+        // Code for login
+        // const response = await axios.get(
+        //   'http://localhost:8080/auth/login',
+        //   {
+        //     email: email,
+        //     password: password,
+        //   },
+        //   { withCredentials: true },
+        // );
+        // console.log(response.data);
+        // const user = response.data.userData;
         this.context.setUser(user);
         this.context.setAuthenticated(true);
         this.context.setFridgeName(user.fridges[0].name);
       } catch (error) {
-        console.error(`Error posting data: ${error}`);
+        console.error(`Error getting data: ${error}`);
       } finally {
         this.setState({ isLoading: false, isButtonDisabled: false });
       }

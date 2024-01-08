@@ -29,7 +29,7 @@ class FridgesListMobile extends React.Component {
   render() {
     let user = this.context.user;
     let authenticated = this.context.authenticated;
-    const { isCreateFridgeClicked, activeFridge } = this.state;
+    const { isCreateFridgeClicked } = this.state;
 
     return (
       <div>
@@ -60,35 +60,22 @@ class FridgesListMobile extends React.Component {
                 />
               </svg>
             </button>
-             <p className="admin-name manrope-300">{user.name}</p>
-            {/*<p className="admin-name manrope-300">Username</p>*/}
-
-            {/* <ul className="fridges-list flex list-reset">
-              <li className="fridges-item">
-                <p className="fridges-name manrope-400">Мой холодильник</p>
-              </li>
-              <li className="fridges-item">
-                <p className="fridges-name manrope-400">Еще холодильник</p>
-              </li>
-              <li className="fridges-item">
-                <p className="fridges-name manrope-400">Синий</p>
-              </li>
-            </ul> */}
-            <ul className="form-input fridge flex list-reset">
-              {this.context.fridgeName ? (
-                    user.fridges.map((fridge) => (
-                        <li
-                            key={fridge.id}
-                            className={`fridges-item ${activeFridge && activeFridge.id === fridge.id ? 'active' : ''}`}
-                            onClick={() => this.handleChooseFridge(fridge)}
-                        >
-                          <p className="fridges-name manrope-400">{fridge.name}</p>
-                        </li>
-                    ))
-              ) : (
-                  <p className="fridges-name manrope-400">Создайте холодильник</p>
-              )}
-            </ul>
+            <p className="admin-name manrope-300">{user.name}</p>
+            <select
+              className="form-input fridge flex list-reset"
+              value={this.state.activeFridge ? this.state.activeFridge.name : ''}
+              onChange={(e) => {
+                const fridgeName = e.target.value;
+                const fridge = user.fridges.find((f) => f.name === fridgeName);
+                this.handleChooseFridge(fridge);
+              }}
+            >
+              {user.fridges.map((fridge) => (
+                <option key={fridge.name} value={fridge.name} className="fridges-item">
+                  {fridge.name}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
       </div>

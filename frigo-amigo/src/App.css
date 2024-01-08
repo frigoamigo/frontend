@@ -266,7 +266,7 @@ main {
 }
 
 .navs {
-  margin: 0 0 0 35em;
+  margin: 0 0 0 30vw;
   position: fixed;
   z-index: 2;
 }
@@ -1545,7 +1545,124 @@ main {
   margin: 0.8em 0 0 14em;
 }
 
+@media screen and (max-width: 1024px) {
+  .navs {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .lines {
+    left: -5%;
+  }
+
+  .navs-item {
+    padding: 20px 30px;
+  }
+
+  .navs-link {
+    font-size: 1rem;
+  }
+
+  .prem-stars {
+    top: 0;
+    right: 0;
+  }
+
+  .wrapper {
+    width: 90%;
+    padding: 0;
+    padding-left: 1.5em;
+  }
+
+  .overlay {
+    width: 50%;
+  }
+
+  .greeting {
+    max-width: 48%;
+  }
+
+  .privet {
+    font-size: 5rem;
+  }
+
+  .newld {
+    font-size: 1.5rem;
+    padding-top: 4em;
+  }
+
+  .privet-info {
+    font-size: 1.5rem;
+  }
+
+  .shifted {
+    transform: translateX(-150%);
+    width: 40%;
+  }
+
+  .privet-overlay {
+    font-size: 4rem;
+  }
+
+  .fridges-list {
+    width: 80%;
+    font-size: small;
+  }
+
+  .pers-acc {
+    margin-left: 40%;
+    width: 58%;
+  }
+
+  .bottom-pers-acc {
+    margin-bottom: 14px;
+  }
+
+  .code-name {
+    display: none;
+  }
+
+  .settings {
+    right: -1em;
+    top: 0;
+  }
+
+  .settings-circle {
+    top: -2em;
+    right: -3em;
+  }
+
+  .settings-list {
+    width: 100%;
+  }
+
+  .door {
+    bottom: 10px;
+  }
+
+  .frame {
+    left: 36%;
+  }
+
+  .heading-text {
+    font-size: 4rem;
+  }
+
+  .about-texts {
+    margin-left: 20%;
+  }
+
+  .about-text {
+    font-size: medium;
+  }
+}
+
 @media screen and (max-width: 480px) {
+  .navs {
+    display: none;
+  }
+
   .App {
     background-color: #e8e8e8;
     min-height: 285em;
@@ -1683,6 +1800,7 @@ main {
   .pers-acc {
     margin: 0;
     margin-top: 60%;
+    width: 100%;
   }
 
   .users {
@@ -1720,21 +1838,27 @@ main {
   .bottom-pers-acc {
     border-top: 3px solid white;
     justify-content: start;
+    margin: 0;
   }
 
   .code {
     width: 75%;
     justify-content: start;
+    align-items: center;
+    border-radius: 10px;
+  }
+
+  .code-nums {
+    font-size: 2rem;
   }
 
   .code-arrow {
     margin-top: 0.8em;
-    margin-left: 0.7em;
   }
 
   .settings-outer {
-    width: 54px;
-    height: 54px;
+    width: 59px;
+    height: 59px;
     position: absolute;
     background-color: #66d9a2;
     border-radius: 11px;
@@ -1744,8 +1868,8 @@ main {
   }
 
   .settings {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     background-image: url(./Pictures/settings.svg);
     background-size: cover;
     top: 10px;
@@ -1760,7 +1884,7 @@ main {
     max-width: 100%;
     margin: 0;
     overflow-y: scroll;
-    max-height: 15em;
+    max-height: 220px;
   }
 
   .settings-label {
@@ -1776,12 +1900,28 @@ main {
     margin-top: 10px;
     max-width: 50px;
     max-height: 60px;
+    bottom: 0;
   }
 
   .delete-account {
     color: #000;
     margin-top: 10px;
     margin-left: 100px;
+  }
+
+  .frame {
+    width: 350px;
+    height: 200px;
+    left: 5%;
+    top: 90%;
+  }
+
+  .confirmation-modal {
+    top: -10%;
+  }
+
+  .confirmation-text {
+    font-size: small;
   }
 
   .about-us {
@@ -2268,5 +2408,33 @@ main {
 
   .footer-year-block {
     margin: 11em 0 0 15.5em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .pers-acc {
+    margin-top: 70%;
+  }
+
+  .settings-list {
+    max-height: 250px;
+    overflow: hidden;
+  }
+
+  .settings-input {
+    padding: 0.5em;
+  }
+
+  .settings-label {
+    font-size: small;
+  }
+
+  .plan-input {
+    width: 10em;
+    margin-right: 1.25em;
+  }
+
+  .change-plan-btn {
+    font-size: small;
   }
 }
