@@ -1,13 +1,59 @@
+import Swal from 'sweetalert2';
 
 
 const PremiumLowerText = (props) => {
+
+    const handleClick = () => {
+        Swal.fire({
+            title: `<p class="nextart-400 premium-pp-heading">30 дней</p>  <p class="premium-words-design nextart-600">бесплатно</p>`,
+            // icon: "info",
+            html: `
+              <p class="premium-text-align manrope-400">Пользователь:Пользователь11</p></br></br>
+              <p class="premium-text-align manrope-400">Какие-то данные?</p></br></br>
+              <p class="premium-text-align manrope-400">Условия соглашения:</p>
+              <div class="premium-private-data-block manrope-400"></div>
+            `,
+            // showCloseButton: true,
+            // showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: `
+              <i class="fa fa-thumbs-up premium-button-confirm"></i> Подключить
+            `,
+            confirmButtonAriaLabel: "Thumbs up, great!",
+            cancelButtonText: `
+              <i class="fa fa-thumbs-down"></i>
+            `,
+            cancelButtonAriaLabel: "Thumbs down",
+            customClass: {
+                container: 'premium-free-pp-container',
+                popup: 'premium-free-pp',
+                header: '...',
+                title: '...',
+                closeButton: '...',
+                icon: '...',
+                image: '...',
+                htmlContainer: '...',
+                input: '...',
+                inputLabel: '...',
+                validationMessage: '...',
+                actions: '...',
+                confirmButton: '...',
+                denyButton: '...',
+                cancelButton: '...',
+                loader: '...',
+                footer: '....',
+                timerProgressBar: '....',
+              }
+          });
+    }
+
     return(
         <>
             <div className="premium-lower-text-block premium-lower-text-block-desktop">
                 <div className="premium-lower-text-items premium-new nextart-400">Ещё свежее - в премиуме!</div>
                 <div className="premium-lower-text-items premium-free manrope-400">Пробный период <span className="premium-words-design manrope-500">30</span> дней!</div>
                 <div className="premium-lower-text-items premium-free-btn">
-                    <button className="premium-btn premium-free-btn-hover color-green">
+                    <button onClick={handleClick} className="premium-btn premium-free-btn-hover color-green">
                         <div className="manrope-500 premium-btn-text premium-btn-items">Free</div>  
                         <div className="premium-btn-items">
                             <svg width="2" height="35" viewBox="0 0 2 69" fill="none" xmlns="http://www.w3.org/2000/svg" className="premium-btn-line">
@@ -36,7 +82,7 @@ const PremiumLowerText = (props) => {
                 <div className=" premium-new nextart-400">Ещё свежее - в премиуме!</div>
                 <div className=" premium-free manrope-400">Пробный период <span className="premium-words-design manrope-500">30</span> дней!</div>
                 <div className=" premium-free-btn">
-                    <button className="premium-btn premium-free-btn-hover color-green">
+                    <button onClick={handleClick} className="premium-btn premium-free-btn-hover color-green">
                         <div className="manrope-500 premium-btn-text premium-btn-items">Free</div>  
                         <div className="premium-btn-items">
                             <svg width="2" height="25" viewBox="0 0 2 69" fill="none" xmlns="http://www.w3.org/2000/svg" className="premium-btn-line">
