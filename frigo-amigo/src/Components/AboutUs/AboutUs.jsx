@@ -1,5 +1,5 @@
 import React from 'react';
-import people from '../../Pictures/people.jpg';
+import people from '../../Pictures/our_team.jpg';
 import Heading from '../Heading';
 
 const AboutUs = () => {
