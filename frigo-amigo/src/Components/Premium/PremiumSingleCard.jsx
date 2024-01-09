@@ -1,6 +1,68 @@
-
+import Swal from 'sweetalert2';
 
 const PremiumSingleCard = (props) => {
+
+    const clickHandler = (props) => {
+        Swal.fire({
+            html: `
+             <div class="premium-info-block">
+                <p class="nextart-400 premium-pp-heading-reg">${props.time}</p>  
+                <p class="premium-words-design nextart-600 premium-pp-second-heading-reg">бесплатно</p>
+                <p class="premium-text-align manrope-400">Пользователь:Пользователь11</p></br></br>
+                <p class="premium-text-align manrope-400">Какие-то данные?</p></br></br>
+                <p class="premium-text-align manrope-400">Условия соглашения:</p>
+                <div class="premium-private-data-block manrope-400"></div>
+                <div>
+                    <input type="checkbox" class="premium-free-checkbox-reg"></input>
+                    <label class="premium-text-align-reg manrope-400">Я принимаю уловия соглашения</lable>
+                </div>
+                <div class="premium-max-width-privacy-reg">
+                    <input type="checkbox" class="premium-free-checkbox-reg"></input>
+                    <label class="premium-text-align-reg manrope-400">
+                    Я подтверждаю свое согласие на передачу
+                    <p style="margin-left: 0em">моих персональных данных на обработку.</p></lable>
+                </div>
+              </div>
+              <div class="premium-payment-block">
+                <div class="premium-inner-menu-block">
+                    <div class="premium-payment-method-one manrope-400">Банковская карта</div>
+                    <div class="premium-payment-method-two manrope-400">Система быстрых платежей</div>
+                </div>
+                <div class="premium-inner-payment-block manrope-400">
+                    <p class="manrope-400 premium-text-align2-reg">Номер карты:</p>
+                    <p class="manrope-400 premium-text-align2-reg">Месяц/год:</p>
+                    <p class="manrope-400 premium-text-align2-reg">CVV2(CVC2):</p>
+                </div>
+              </div>
+            `,
+            focusConfirm: false,
+            buttonsStyling: false,
+            confirmButtonText: `
+              Оплатить
+            `,
+            customClass: {
+                container: 'premium-free-pp-container',
+                popup: 'premium-free-pp-reg',
+                header: '...',
+                title: '...',
+                closeButton: '...',
+                icon: '...',
+                image: '...',
+                htmlContainer: '...',
+                input: '...',
+                inputLabel: '...',
+                validationMessage: '...',
+                actions: '...',
+                confirmButton: 'premium-button-confirm-reg color nextart-400',
+                denyButton: '...',
+                cancelButton: '...',
+                loader: '...',
+                footer: '....',
+                timerProgressBar: '....',
+              }
+          });
+    }
+
     return(
         <>
         <ul>
@@ -8,7 +70,7 @@ const PremiumSingleCard = (props) => {
                 <div className="premium-card-box">
                     <div className="premium-card-heading nextart-400">{props.time}</div>
                     <div className="premium-card-price nextart-400" >{props.priceMonth}</div>
-                    <button className="premium-btn premium-btn-hover color">
+                    <button onClick={() => clickHandler(props)} className="premium-btn premium-btn-hover color">
                         <div className="manrope-500 premium-btn-text premium-btn-items">{props.priceTotal}</div>  
                         <div className="premium-btn-items premium-btn-desktop">
                             <svg width="2" height="35" viewBox="0 0 2 69" fill="none" xmlns="http://www.w3.org/2000/svg" className="premium-btn-line">
@@ -55,7 +117,6 @@ const PremiumSingleCard = (props) => {
             </li>
         </ul>
         </>
-        // style={{backgroundImage: "linear-gradient(to right, #fff, #fff, #fff, #fff)", border: "2px solid #EC9A29"}}
     )
 }
 

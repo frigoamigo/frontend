@@ -5,25 +5,20 @@ const PremiumLowerText = (props) => {
 
     const handleClick = () => {
         Swal.fire({
-            title: `<p class="nextart-400 premium-pp-heading">30 дней</p>  <p class="premium-words-design nextart-600">бесплатно</p>`,
-            // icon: "info",
+            title: `<p class="nextart-400 premium-pp-heading">30 дней</p>  <p class="premium-words-design nextart-600 premium-pp-second-heading">бесплатно</p>`,
             html: `
               <p class="premium-text-align manrope-400">Пользователь:Пользователь11</p></br></br>
               <p class="premium-text-align manrope-400">Какие-то данные?</p></br></br>
               <p class="premium-text-align manrope-400">Условия соглашения:</p>
               <div class="premium-private-data-block manrope-400"></div>
+              <input type="checkbox" class="premium-free-checkbox"></input>
+              <label class="premium-text-align manrope-400">Я принимаю уловия соглашения</lable>
             `,
-            // showCloseButton: true,
-            // showCancelButton: true,
             focusConfirm: false,
+            buttonsStyling: false,
             confirmButtonText: `
-              <i class="fa fa-thumbs-up premium-button-confirm"></i> Подключить
+              Подключить 
             `,
-            confirmButtonAriaLabel: "Thumbs up, great!",
-            cancelButtonText: `
-              <i class="fa fa-thumbs-down"></i>
-            `,
-            cancelButtonAriaLabel: "Thumbs down",
             customClass: {
                 container: 'premium-free-pp-container',
                 popup: 'premium-free-pp',
@@ -37,7 +32,7 @@ const PremiumLowerText = (props) => {
                 inputLabel: '...',
                 validationMessage: '...',
                 actions: '...',
-                confirmButton: '...',
+                confirmButton: 'premium-button-confirm color nextart-400',
                 denyButton: '...',
                 cancelButton: '...',
                 loader: '...',
