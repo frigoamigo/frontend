@@ -906,13 +906,13 @@ main {
 }
 
 .about-text {
-  max-width: 28em;
+  max-width: 26em;
   font-size: 1.5rem;
   padding-top: 4em;
 }
 
 .people {
-  margin: 3em -20em 0 -4em;
+  margin: 3em -20em 0 -2em;
   max-height: 29em;
   border-radius: 30px;
   border: 3px solid #66d9a2;
@@ -1507,15 +1507,17 @@ main {
 }
 
 .premium-pp-heading-reg {
-  margin: 0.5em 0 0.2em 2.2em;
+  margin: 0 0 0 0;
   font-size: 3rem;
   color: #000;
-  text-align: left;
+  text-align: center;
+  width: 10em;
 }
 
 .premium-pp-second-heading-reg{
-  margin: 0 0 2em 8.5em;
-  text-align: left;
+  margin: 0 0 2em 0;
+  text-align: center;
+  width: 26.66em;
 }
 
 .premium-pp-heading {
@@ -2296,6 +2298,14 @@ main {
 
   /*Premium Cards*/
 
+  .premium-container{
+    position: relative;
+    background-color: #272826;
+    width: 100%;
+    margin: auto;
+    top: 5em; left: auto; bottom: 0; right: auto;
+  }
+
   .premium-stars {
     margin: 5.5em 0 0 2em;
     width: 2.5em;
@@ -2306,9 +2316,12 @@ main {
     z-index: 1;
     display: flex;
     flex-direction: row;
-    margin: 5em 0 0 0;
-    max-width: 20em;
-    height: 22em;
+    margin: auto;
+
+    top: 0; left: auto; bottom: 0; right: auto;
+
+    /* max-width: 20em;
+    height: 22em; */
   }
 
   .premium-cards-block2 {
@@ -2316,9 +2329,11 @@ main {
     z-index: 1;
     display: flex;
     flex-direction: row;
-    margin: 15em 0 0 0;
-    max-width: 20em;
-    height: 22em;
+    margin: auto;
+    top: 10em; left: auto; bottom: 0; right: auto;
+
+    /* max-width: 20em;
+    height: 22em; */
   }
 
   .premium-cards-block-web-desktop {

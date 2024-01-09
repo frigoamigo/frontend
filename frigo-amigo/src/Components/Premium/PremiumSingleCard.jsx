@@ -6,8 +6,10 @@ const PremiumSingleCard = (props) => {
         Swal.fire({
             html: `
              <div class="premium-info-block">
-                <p class="nextart-400 premium-pp-heading-reg">${props.time}</p>  
-                <p class="premium-words-design nextart-600 premium-pp-second-heading-reg">бесплатно</p>
+                <div>
+                    <div class="nextart-400 premium-pp-heading-reg">${props.time}</div>  
+                    <div class="premium-words-design nextart-600 premium-pp-second-heading-reg">бесплатно</div>
+                </div>
                 <p class="premium-text-align manrope-400">Пользователь:Пользователь11</p></br></br>
                 <p class="premium-text-align manrope-400">Какие-то данные?</p></br></br>
                 <p class="premium-text-align manrope-400">Условия соглашения:</p>
